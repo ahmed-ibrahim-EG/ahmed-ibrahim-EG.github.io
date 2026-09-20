@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMED IBRAHIM — Junior Data Engineer — Portfolio 2026</title>
+    <meta name="description" content="Portfolio of Ahmed Ibrahim — Junior Data Engineer specializing in Python/Pandas ETL pipelines, SQL Server architectures, and relational modeling.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberDark: '#08090C',
+                        cyberCard: '#0F1117',
+                        cyberBorder: 'rgba(255, 255, 255, 0.12)',
+                        neonLime: '#CCFF00',
+                        neonLimeDim: '#99CC00',
+                        techGray: '#8E95A5',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        condensed: ['Anton', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #08090C;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            selection-background-color: #CCFF00;
+            selection-color: #08090C;
+        }
+
+        /* Checkerboard Pattern */
+        .pattern-checkerboard {
+            background-image: 
+                linear-gradient(45deg, #CCFF00 25%, transparent 25%), 
+                linear-gradient(-45deg, #CCFF00 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #CCFF00 75%), 
+                linear-gradient(-45deg, transparent 75%, #CCFF00 75%);
+            background-size: 14px 14px;
+            background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+        }
+
+        /* Technical Grid */
+        .bg-cyber-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08090C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #20242F;
+            border-radius: 0px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CCFF00;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-cyberDark text-white selection:bg-neonLime selection:text-black">
+
+    <!-- Top Grid Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-cyberDark/90 backdrop-blur-md border-b border-cyberBorder">
+        <div class="max-w-[1440px] mx-auto flex items-stretch justify-between h-14 sm:h-16">
+            
+            <!-- Brand / Logo -->
+            <a href="#" class="flex items-center px-4 sm:px-8 border-r border-cyberBorder hover:bg-white/5 transition-colors gap-3 group">
+                <span class="w-3 h-3 bg-neonLime animate-pulse group-hover:scale-125 transition-transform"></span>
+                <span class="font-mono text-xs sm:text-sm tracking-wider font-bold text-white">[DE] AHMED IBRAHIM</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-stretch font-mono text-xs tracking-widest uppercase">
+                <a href="#work" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">01</span>
+                    <span class="font-semibold tracking-wider">WORK</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                </a>
+
+                <a href="#profile" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">02</span>
+                    <span class="font-semibold tracking-wider">PROFILE</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                </a>
+
+                <a href="#matrix" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">03</span>
+                    <span class="font-semibold tracking-wider">STACK</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                </a>
+
+                <a href="#credentials" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">04</span>
+                    <span class="font-semibold tracking-wider">CREDENTIALS</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                </a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="flex items-stretch">
+                <a href="mailto:ibrhama064@gmail.com" class="flex items-center px-6 sm:px-8 bg-neonLime text-black font-mono font-bold text-xs uppercase tracking-widest hover:bg-white hover:scale-[1.02] active:scale-95 transition-all">
+                    LET'S TALK ↗
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-24 sm:pt-28 border-b border-cyberBorder bg-cyberDark overflow-hidden">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
+            
+            <!-- Meta Bar -->
+            <div class="flex flex-wrap items-center justify-between border-b border-cyberBorder px-6 py-3 font-mono text-xs text-techGray tracking-widest uppercase">
+                <div class="flex items-center gap-2">
+                    <span class="text-neonLime">▶</span>
+                    <span>PORTFOLIO CODE</span>
+                </div>
+                <div>
+                    <span>STATUS: AVAILABLE FOR ROLES & INTERNSHIPS</span>
+                </div>
+            </div>
+
+            <!-- Hero Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[620px]">
+                
+                <!-- Left Huge Title Column -->
+                <div class="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-cyberBorder relative">
+                    <div class="space-y-1">
+                        <div class="font-mono text-sm tracking-widest uppercase text-neonLime font-bold mb-4">00 JUNIOR DATA ENGINEER</div>
+                        <h1 class="font-condensed text-7xl sm:text-9xl md:text-[10.5rem] leading-[0.85] tracking-tight uppercase select-none text-white block">
+                            AHMED
+                        </h1>
+                        <h2 class="font-condensed text-7xl sm:text-9xl md:text-[10.5rem] leading-[0.85] tracking-tight uppercase select-none text-zinc-300 block">
+                            IBRAHIM
+                        </h2>
+                    </div>
+
+                    <!-- Clean Bio Paragraph -->
+                    <div class="pt-12 sm:pt-16 max-w-2xl">
+                        <p class="font-mono text-xs sm:text-sm md:text-base text-techGray leading-relaxed uppercase">
+                            SECOND-YEAR <span class="text-white font-bold">COMPUTERS & DATA SCIENCE STUDENT @ ALEXANDRIA UNIVERSITY</span> & <span class="text-neonLime font-bold">MICROSOFT DEPI DATA ENGINEER TRAINEE</span>. SPECIALIZING IN <span class="text-white font-bold">PYTHON & PANDAS ETL PIPELINES</span>, STAR SCHEMA MODELING, AND <span class="text-neonLime font-bold">AUDITABLE SQL SERVER SOLUTIONS</span> BUILT TO INGEST, VALIDATE, AND SCALE REAL-WORLD DATA.
+                        </p>
+                    </div>
+
+                    <div class="pt-8 flex items-center gap-6 font-mono text-xs tracking-wider text-techGray uppercase border-t border-cyberBorder mt-8">
+                        <span>BASED IN ALEXANDRIA, EGYPT</span>
+                        <span>•</span>
+                        <a href="#work" class="text-neonLime hover:underline">SCROLL TO EXPLORE ↓</a>
+                    </div>
+                </div>
+
+                <!-- Right Side Badge Card (With Image & Core Technologies) -->
+                <div class="lg:col-span-5 xl:col-span-4 bg-neonLime text-black p-6 sm:p-8 flex flex-col justify-between relative">
+                    <div>
+                        <!-- Card Top Bar -->
+                        <div class="flex items-start justify-between font-mono text-xs uppercase tracking-widest mb-6">
+                            <span class="font-bold tracking-wider">[ ARCH CARD ]</span>
+                            <span class="font-bold text-black/70">#01</span>
+                        </div>
+
+                        <!-- Image Frame -->
+                        <div class="w-full aspect-[4/5] bg-black p-2 border-2 border-black mb-6 shadow-xl relative overflow-hidden">
+                            <img src="./profile.png" alt="Ahmed Ibrahim" class="w-full h-full object-cover object-top grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                        </div>
+
+                        <!-- Profile Name -->
+                        <div class="border-b-2 border-black pb-4">
+                            <h3 class="font-condensed text-3xl sm:text-4xl uppercase leading-tight font-black tracking-tight text-black">
+                                Ahmed IBRAHIM
+                            </h3>
+                            <p class="font-mono text-xs font-bold uppercase tracking-wider mt-1 text-black/80">
+                                DATA PIPELINES & SQL ARCHITECTURE
+                            </p>
+                        </div>
+
+                        <!-- Core Technologies Section -->
+                        <div class="mt-5 space-y-3 font-mono">
+                            <div class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-black flex items-center gap-2">
+                                <span>CORE TECHNOLOGIES</span>
+                            </div>
+                            
+                            <ul class="space-y-2 text-xs sm:text-sm font-bold text-zinc-900">
+                                <li class="flex items-center gap-2">
+                                    <span class="text-base">🐍</span>
+                                    <span>Python (Pandas, NumPy, pyodbc)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-base">🗄️</span>
+                                    <span>SQL (Server, T-SQL, SSMS)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-base">🐳</span>
+                                    <span>Docker & Linux Environment</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="text-base">☁️</span>
+                                    <span>Microsoft Azure (Data Foundations)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer Bar -->
+                    <div class="font-mono text-[11px] font-bold uppercase tracking-widest border-t-2 border-black pt-4 mt-6 flex justify-between">
+                        <span>DEPI MICROSOFT TRAINEE</span>
+                        <span>ON THE GRID</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: WORK IN MOTION -->
+    <section id="work" class="border-b border-cyberBorder bg-cyberDark">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
+            
+            <!-- Section Header -->
+            <div class="p-6 sm:p-12 border-b border-cyberBorder flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <div class="font-mono text-sm uppercase text-neonLime tracking-widest mb-3 font-bold">01 SELECTED LABS</div>
+                    <h2 class="font-condensed text-6xl sm:text-8xl uppercase tracking-tight leading-none font-bold">
+                        WORK <span class="text-zinc-600">IN MOTION</span>
+                    </h2>
+                </div>
+                <div class="font-mono text-xs text-techGray uppercase tracking-widest">
+                    [ 2026 — PIPELINES & ARCHITECTURE ]
+                </div>
+            </div>
+
+            <!-- Showcase Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+                
+                <!-- Left Nav / Selectors -->
+                <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-cyberBorder divide-y divide-cyberBorder font-mono">
+                    
+                    <button onclick="switchTab(0)" id="btn-tab-0" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">01</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">METRO DATA PIPELINE</span>
+                        </div>
+                        <span class="text-xs font-mono text-neonLime">[ACTIVE]</span>
+                    </button>
+
+                    <button onclick="switchTab(1)" id="btn-tab-1" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">02</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">STUDENT PERFORMANCE ETL</span>
+                        </div>
+                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                    </button>
+
+                    <button onclick="switchTab(2)" id="btn-tab-2" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">03</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">RAILWAY TICKET SYSTEM</span>
+                        </div>
+                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                    </button>
+
+                    <button onclick="switchTab(3)" id="btn-tab-3" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">04</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">LEETCODE 50 SQL ARCH</span>
+                        </div>
+                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                    </button>
+
+                </div>
+
+                <!-- Right Display Area -->
+                <div class="lg:col-span-7 bg-neonLime text-black p-8 sm:p-14 flex flex-col justify-between relative transition-all duration-300" id="project-display-box">
+                    <div>
+                        <div class="flex justify-between items-start font-mono text-xs uppercase tracking-widest pb-6 border-b border-black/20">
+                            <span class="font-bold text-sm" id="proj-tag">01 WORKFLOW & TELEMETRY</span>
+                            <span class="font-bold" id="proj-status">ACTIVE INGESTION: STAGE 1 OF 5</span>
+                        </div>
+
+                        <h3 class="font-condensed text-5xl sm:text-7xl uppercase tracking-tight font-black mt-6" id="proj-title">
+                            METRO DATA PIPELINE
+                        </h3>
+
+                        <p class="mt-4 font-mono text-xs sm:text-sm text-black/85 leading-relaxed uppercase" id="proj-desc">
+                            Pure data-engineering pipeline ingesting, profiling, and validating messy passenger JSON events and CSV train telemetry. Implements environment-driven configurations, structured Python logging, and loading into Microsoft SQL Server.
+                        </p>
+                    </div>
+
+                    <div class="pt-8">
+                        <div class="flex flex-wrap gap-2 mb-8 font-mono text-xs" id="proj-stack">
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTHON</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PANDAS</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">SQL SERVER</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYODBC</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTEST</span>
+                        </div>
+
+                        <a href="https://github.com/ibrhamahmed14-design" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
+                            <span>INSPECT REPOSITORY</span>
+                            <span>↗</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: THE PROFILE -->
+    <section id="profile" class="border-b border-cyberBorder bg-cyberDark">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Left Checkerboard Card -->
+                <div class="lg:col-span-5 p-8 sm:p-14 border-b lg:border-b-0 lg:border-r border-cyberBorder flex items-center justify-center">
+                    <div class="pattern-checkerboard p-3 w-full max-w-sm aspect-square border border-cyberBorder">
+                        <div class="w-full h-full bg-cyberDark border border-cyberBorder p-8 flex flex-col justify-between relative overflow-hidden">
+                            <div class="font-mono text-xs text-neonLime uppercase tracking-widest font-bold">EDUCATION</div>
+                            
+                            <!-- Big CS Monogram -->
+                            <div class="font-condensed text-8xl sm:text-9xl text-white font-black leading-none">
+                                CS
+                            </div>
+
+                            <div class="font-mono text-xs text-techGray uppercase tracking-wider font-semibold space-y-1">
+                                <div class="text-white font-bold">Faculty of Computers & Data Science</div>
+                                <div>Alexandria University — Year 2</div>
+                                <div class="text-neonLime font-bold">GPA: 2.7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Statement & Metrics -->
+                <div class="lg:col-span-7 p-8 sm:p-14 flex flex-col justify-between">
+                    <div>
+                        <div class="font-mono text-sm uppercase text-neonLime tracking-widest mb-4 font-bold">02 THE PROFILE</div>
+                        <h2 class="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight leading-snug text-white">
+                            I'M AHMED — A DATA ENGINEER FOCUSED ON TURNING RAW, UNSTRUCTURED DATASETS INTO RESILIENT, CLEAN, AND AUDITABLE PIPELINES.
+                        </h2>
+                    </div>
+
+                    <!-- Metrics Showcase Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-10 border-t border-cyberBorder mt-8 font-mono">
+                        
+                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
+                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">ROLE</div>
+                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
+                                JUNIOR DATA ENGINEER
+                            </div>
+                        </div>
+
+                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
+                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">FOCUS</div>
+                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
+                                ETL PIPELINES & SQL
+                            </div>
+                        </div>
+
+                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
+                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">TRAINING</div>
+                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
+                                DEPI R5 (MICROSOFT)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: TECHNICAL MATRIX -->
+    <section id="matrix" class="border-b border-cyberBorder bg-cyberDark">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
+            
+            <div class="p-6 sm:p-10 border-b border-cyberBorder flex justify-between items-center font-mono">
+                <span class="text-neonLime text-sm sm:text-base font-bold uppercase tracking-widest">03 TECHNICAL MATRIX</span>
+                <span class="text-techGray text-xs uppercase tracking-widest">TOOLS & STACK 2026</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-cyberBorder">
+                
+                <!-- Col 1 -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="font-mono text-xs text-techGray mb-6 font-bold">01</div>
+                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
+                            ETL & ELT Design
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
+                            Pipeline Automation, Data Cleansing, Schema Validation, Transformations, Star Schema & ERD Modeling.
+                        </p>
+                    </div>
+                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="font-mono text-xs text-techGray mb-6 font-bold">02</div>
+                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
+                            Advanced SQL
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
+                            Microsoft SQL Server (SSMS), SQLite, Window Functions, CTEs, Complex Joins, Normalization, Query Tuning.
+                        </p>
+                    </div>
+                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="font-mono text-xs text-techGray mb-6 font-bold">03</div>
+                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
+                            Dev & Libraries
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
+                            Python, Pandas, NumPy, pyodbc, Requests, pytest, Flask, FastAPI, Selenium, Java (basics), PHP.
+                        </p>
+                    </div>
+                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <div class="font-mono text-xs text-techGray mb-6 font-bold">04</div>
+                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
+                            Infrastructure & Cloud
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
+                            Docker Containers, Linux CLI, Shell Scripting, Git & GitHub, Microsoft Azure Fundamentals, Draw.io.
+                        </p>
+                    </div>
+                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CREDENTIALS & BADGES -->
+    <section id="credentials" class="border-b border-cyberBorder bg-cyberDark">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
+            
+            <div class="p-6 sm:p-10 border-b border-cyberBorder flex justify-between items-center font-mono">
+                <span class="text-neonLime text-sm sm:text-base font-bold uppercase tracking-widest">04 VERIFIED CREDENTIALS</span>
+                <span class="text-techGray text-xs uppercase tracking-widest">CERTIFICATES & ACCREDITATIONS</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 divide-x-0 md:divide-x divide-cyberBorder">
+                
+                <!-- Cert 1 -->
+                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            DUKE UNIVERSITY (COURSERA)
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Python, Bash and SQL Essentials for Data Engineering
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Hands-on pipeline automation, Linux CLI, Bash scripting, and SQL Server integration.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            ORACLE DEV GYM
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Databases for Developers: Foundations
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Relational database design, integrity constraints, and operational SQL.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            ORACLE UNIVERSITY
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Oracle SQL Fundamentals
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Comprehensive relational query syntax, group functions, and multi-table joins.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            IBM
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Java Basics for Beginners
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Object-oriented programming architecture, data types, and logical workflows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cert 5 -->
+                <div class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            GOOGLE
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Introduction to AI
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Foundational concepts of artificial intelligence, algorithms, and applied machine learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cert 6 -->
+                <div class="p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                    <div>
+                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            COURSERA & LINUX FOUNDATION
+                        </span>
+                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                            Linux Fundamentals & Parallel Deployment
+                        </h4>
+                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                            Terminal file systems, administration, and modern parallel workload distribution.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Note: All Certifications on LinkedIn -->
+            <div class="p-6 sm:p-8 border-t border-cyberBorder bg-white/[0.01] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                <div class="flex items-center gap-2 text-techGray">
+                    <span class="text-neonLime font-bold">INFO:</span>
+                    <span>ALL VERIFIED CERTIFICATES & DETAILED CREDENTIALS ARE AVAILABLE ON MY LINKEDIN PROFILE.</span>
+                </div>
+                <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="text-neonLime hover:text-white uppercase font-bold tracking-wider inline-flex items-center gap-1 transition-colors underline underline-offset-4">
+                    <span>VIEW ON LINKEDIN</span>
+                    <span>↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FINAL LAP / FOOTER -->
+    <footer id="contact" class="bg-neonLime text-black overflow-hidden">
+        <div class="max-w-[1440px] mx-auto border-x-0 sm:border-x border-black">
+            
+            <div class="p-6 sm:p-14 border-b border-black/20 font-mono text-xs sm:text-sm uppercase tracking-widest font-bold flex justify-between">
+                <span>FINAL LAP: OPEN FOR COLLABORATION</span>
+                <span>[ STATUS: READY ]</span>
+            </div>
+
+            <!-- Massive Headline -->
+            <div class="p-6 sm:p-14 border-b border-black">
+                <h2 class="font-condensed text-6xl sm:text-8xl md:text-[9.5rem] leading-[0.88] tracking-tighter uppercase font-black">
+                    LET'S MAKE<br>
+                    SOMETHING<br>
+                    RELIABLE.
+                </h2>
+            </div>
+
+            <!-- Bottom Links & Info -->
+            <div class="p-6 sm:p-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 font-mono">
+                <div>
+                    <div class="text-xs uppercase font-bold text-black/60 mb-2">PRIMARY DIRECT CHANNEL</div>
+                    <a href="mailto:ibrhama064@gmail.com" class="font-mono text-2xl sm:text-4xl font-bold tracking-tight uppercase hover:underline">
+                        IBRHAMA064@GMAIL.COM ↗
+                    </a>
+                    <div class="flex gap-6 mt-6 text-sm uppercase font-bold">
+                        <a href="https://github.com/ibrhamahmed14-design" target="_blank" rel="noopener noreferrer" class="hover:underline">GITHUB ↗</a>
+                        <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="hover:underline">LINKEDIN ↗</a>
+                    </div>
+                </div>
+
+                <div class="text-xs uppercase font-bold tracking-widest text-black/70">
+                    © 2026 AHMED IBRAHIM — ALL SYSTEMS OPERATIONAL
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Interactive Tabs Logic -->
+    <script>
+        const projectData = [
+            {
+                tag: "01 WORKFLOW & TELEMETRY",
+                status: "ACTIVE INGESTION: STAGE 1 OF 5",
+                title: "METRO DATA PIPELINE",
+                desc: "Pure data-engineering pipeline ingesting, profiling, and validating messy passenger JSON events and CSV train telemetry. Implements environment-driven configurations, structured Python logging, and loading into Microsoft SQL Server.",
+                stack: ["PYTHON", "PANDAS", "SQL SERVER", "PYODBC", "PYTEST"],
+                link: "https://github.com/ibrhamahmed14-design"
+            },
+            {
+                tag: "02 DATA QUALITY ITERATIONS",
+                status: "COMPLETED: 7 ITERATIONS",
+                title: "STUDENT PERFORMANCE ETL",
+                desc: "End-to-end multi-phase ETL pipeline designed to extract, explore, validate, clean, and transform student performance records. Raised output quality score from 5.5/10 to 9.5/10 through refined error-handling logic.",
+                stack: ["PYTHON", "PANDAS", "GIT", "GITHUB", "DATA VALIDATION"],
+                link: "https://github.com/ibrhamahmed14-design/student-performance-ETL-"
+            },
+            {
+                tag: "03 RESERVATION AUTOMATION",
+                status: "COMPLETED: DEPLOYED",
+                title: "RAILWAY TICKET SYSTEM",
+                desc: "Modular ETL architecture to extract, parse, validate, and clean raw railway ticket reservation data. Automated anomaly detection for timestamps and missing fields for downstream analysis.",
+                stack: ["PYTHON", "PANDAS", "ETL AUTOMATION", "DATA QUALITY"],
+                link: "https://github.com/ibrhamahmed14-design"
+            },
+            {
+                tag: "04 QUERY ARCHITECTURE",
+                status: "ACTIVE SOLVING: LEETCODE 50",
+                title: "LEETCODE 50 SQL ARCH",
+                desc: "Curated repository of solutions to top analytical SQL challenges on SQL Server. Focused on window functions, CTEs, complex relational join plans, and NULL handling optimization.",
+                stack: ["T-SQL", "SSMS", "CTEs", "WINDOW FUNCTIONS", "OPTIMIZATION"],
+                link: "https://github.com/ibrhamahmed14-design"
+            }
+        ];
+
+        function switchTab(index) {
+            const data = projectData[index];
+            
+            // Update Card Content
+            document.getElementById('proj-tag').textContent = data.tag;
+            document.getElementById('proj-status').textContent = data.status;
+            document.getElementById('proj-title').textContent = data.title;
+            document.getElementById('proj-desc').textContent = data.desc;
+            document.getElementById('proj-link').href = data.link;
+
+            // Update Badges
+            const stackContainer = document.getElementById('proj-stack');
+            stackContainer.innerHTML = '';
+            data.stack.forEach(tech => {
+                const badge = document.createElement('span');
+                badge.className = 'px-3 py-1 bg-black text-neonLime uppercase font-bold';
+                badge.textContent = tech;
+                stackContainer.appendChild(badge);
+            });
+
+            // Update Button Styles
+            for (let i = 0; i < projectData.length; i++) {
+                const btn = document.getElementById(`btn-tab-${i}`);
+                if (i === index) {
+                    btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime';
+                } else {
+                    btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
