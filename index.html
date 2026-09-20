@@ -175,8 +175,8 @@
                     </div>
                 </div>
 
-                <!-- Right Side Badge Card (With Image & Core Technologies) -->
-                <div class="lg:col-span-5 xl:col-span-4 bg-neonLime text-black p-6 sm:p-8 flex flex-col justify-between relative">
+                <!-- Right Side Badge Card (Redesigned High-Contrast Tech Cards) -->
+                <div class="lg:col-span-5 xl:col-span-4 bg-neonLime text-black p-6 sm:p-8 flex flex-col justify-between relative shadow-2xl">
                     <div>
                         <!-- Card Top Bar -->
                         <div class="flex items-start justify-between font-mono text-xs uppercase tracking-widest mb-6">
@@ -199,30 +199,92 @@
                             </p>
                         </div>
 
-                        <!-- Core Technologies Section -->
+                        <!-- Core Technologies Section (High-Contrast Tech Micro-Cards) -->
                         <div class="mt-5 space-y-3 font-mono">
-                            <div class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-black flex items-center gap-2">
-                                <span>CORE TECHNOLOGIES</span>
+                            <div class="flex items-center justify-between">
+                                <span class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-black">
+                                    CORE TECHNOLOGIES
+                                </span>
+                                <span class="text-[10px] font-mono bg-black text-neonLime px-2 py-0.5 font-bold uppercase tracking-wider">
+                                    PROD STACK
+                                </span>
                             </div>
                             
-                            <ul class="space-y-2 text-xs sm:text-sm font-bold text-zinc-900">
-                                <li class="flex items-center gap-2">
-                                    <span class="text-base">🐍</span>
-                                    <span>Python (Pandas, NumPy, pyodbc)</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="text-base">🗄️</span>
-                                    <span>SQL (Server, T-SQL, SSMS)</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="text-base">🐳</span>
-                                    <span>Docker & Linux Environment</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="text-base">☁️</span>
-                                    <span>Microsoft Azure (Data Foundations)</span>
-                                </li>
-                            </ul>
+                            <div class="space-y-2.5">
+                                
+                                <!-- Card 1 -->
+                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                            01
+                                        </span>
+                                        <div class="min-w-0">
+                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
+                                                Python & ETL Automation
+                                            </div>
+                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
+                                                Pandas, NumPy, pyodbc, pytest
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-black text-black">↗</span>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                            02
+                                        </span>
+                                        <div class="min-w-0">
+                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
+                                                SQL Server & Data Modeling
+                                            </div>
+                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
+                                                T-SQL, SSMS, Star Schema, CTEs
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-black text-black">↗</span>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                            03
+                                        </span>
+                                        <div class="min-w-0">
+                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
+                                                Docker & Linux Systems
+                                            </div>
+                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
+                                                Containers, CLI, Shell, Git
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-black text-black">↗</span>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                            04
+                                        </span>
+                                        <div class="min-w-0">
+                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
+                                                Microsoft Azure Cloud
+                                            </div>
+                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
+                                                DEPI Track, Cloud Data Foundations
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-black text-black">↗</span>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
@@ -320,7 +382,7 @@
                             <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTEST</span>
                         </div>
 
-                        <a href="https://github.com/ibrhamahmed14-design" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
+                        <a href="https://github.com/ahmed-ibrahim-EG" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
                             <span>INSPECT REPOSITORY</span>
                             <span>↗</span>
                         </a>
@@ -610,7 +672,7 @@
                         IBRHAMA064@GMAIL.COM ↗
                     </a>
                     <div class="flex gap-6 mt-6 text-sm uppercase font-bold">
-                        <a href="https://github.com/ibrhamahmed14-design" target="_blank" rel="noopener noreferrer" class="hover:underline">GITHUB ↗</a>
+                        <a href="https://github.com/ahmed-ibrahim-EG" target="_blank" rel="noopener noreferrer" class="hover:underline">GITHUB ↗</a>
                         <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="hover:underline">LINKEDIN ↗</a>
                     </div>
                 </div>
@@ -632,7 +694,7 @@
                 title: "METRO DATA PIPELINE",
                 desc: "Pure data-engineering pipeline ingesting, profiling, and validating messy passenger JSON events and CSV train telemetry. Implements environment-driven configurations, structured Python logging, and loading into Microsoft SQL Server.",
                 stack: ["PYTHON", "PANDAS", "SQL SERVER", "PYODBC", "PYTEST"],
-                link: "https://github.com/ibrhamahmed14-design"
+                link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
                 tag: "02 DATA QUALITY ITERATIONS",
@@ -640,7 +702,7 @@
                 title: "STUDENT PERFORMANCE ETL",
                 desc: "End-to-end multi-phase ETL pipeline designed to extract, explore, validate, clean, and transform student performance records. Raised output quality score from 5.5/10 to 9.5/10 through refined error-handling logic.",
                 stack: ["PYTHON", "PANDAS", "GIT", "GITHUB", "DATA VALIDATION"],
-                link: "https://github.com/ibrhamahmed14-design/student-performance-ETL-"
+                link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
                 tag: "03 RESERVATION AUTOMATION",
@@ -648,7 +710,7 @@
                 title: "RAILWAY TICKET SYSTEM",
                 desc: "Modular ETL architecture to extract, parse, validate, and clean raw railway ticket reservation data. Automated anomaly detection for timestamps and missing fields for downstream analysis.",
                 stack: ["PYTHON", "PANDAS", "ETL AUTOMATION", "DATA QUALITY"],
-                link: "https://github.com/ibrhamahmed14-design"
+                link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
                 tag: "04 QUERY ARCHITECTURE",
@@ -656,7 +718,7 @@
                 title: "LEETCODE 50 SQL ARCH",
                 desc: "Curated repository of solutions to top analytical SQL challenges on SQL Server. Focused on window functions, CTEs, complex relational join plans, and NULL handling optimization.",
                 stack: ["T-SQL", "SSMS", "CTEs", "WINDOW FUNCTIONS", "OPTIMIZATION"],
-                link: "https://github.com/ibrhamahmed14-design"
+                link: "https://github.com/ahmed-ibrahim-EG"
             }
         ];
 
