@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AHMED IBRAHIM — Junior Data Engineer — Portfolio 2026</title>
-    <meta name="description" content="Portfolio of Ahmed Ibrahim — Junior Data Engineer specializing in Python/Pandas ETL pipelines, SQL Server architectures, and relational modeling.">
+    <meta name="description" content="Portfolio of Ahmed Ibrahim — Junior Data Engineer specializing in Python/Pandas ETL pipelines, SQL Server architectures, API ingestion, and relational data modeling.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,7 +164,7 @@
                     <!-- Clean Bio Paragraph -->
                     <div class="pt-12 sm:pt-16 max-w-2xl">
                         <p class="font-mono text-xs sm:text-sm md:text-base text-techGray leading-relaxed uppercase">
-                            SECOND-YEAR <span class="text-white font-bold">COMPUTERS & DATA SCIENCE STUDENT @ ALEXANDRIA UNIVERSITY</span> & <span class="text-neonLime font-bold">MICROSOFT DEPI DATA ENGINEER TRAINEE</span>. SPECIALIZING IN <span class="text-white font-bold">PYTHON & PANDAS ETL PIPELINES</span>, STAR SCHEMA MODELING, AND <span class="text-neonLime font-bold">AUDITABLE SQL SERVER SOLUTIONS</span> BUILT TO INGEST, VALIDATE, AND SCALE REAL-WORLD DATA.
+                            SECOND-YEAR <span class="text-white font-bold">COMPUTERS & DATA SCIENCE STUDENT @ ALEXANDRIA UNIVERSITY</span> & <span class="text-neonLime font-bold">MICROSOFT DEPI DATA ENGINEER TRAINEE</span>. SPECIALIZING IN <span class="text-white font-bold">PYTHON & PANDAS ETL PIPELINES</span>, STAR SCHEMA MODELING, REST API INGESTION, AND <span class="text-neonLime font-bold">AUDITABLE SQL SERVER SOLUTIONS</span> BUILT TO INGEST, VALIDATE, AND SCALE REAL-WORLD DATA.
                         </p>
                     </div>
 
@@ -175,7 +175,7 @@
                     </div>
                 </div>
 
-                <!-- Right Side Badge Card (Redesigned High-Contrast Tech Cards) -->
+                <!-- Right Side Badge Card -->
                 <div class="lg:col-span-5 xl:col-span-4 bg-neonLime text-black p-6 sm:p-8 flex flex-col justify-between relative shadow-2xl">
                     <div>
                         <!-- Card Top Bar -->
@@ -199,7 +199,7 @@
                             </p>
                         </div>
 
-                        <!-- Core Technologies Section (High-Contrast Tech Micro-Cards) -->
+                        <!-- Core Technologies Section -->
                         <div class="mt-5 space-y-3 font-mono">
                             <div class="flex items-center justify-between">
                                 <span class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-black">
@@ -220,10 +220,10 @@
                                         </span>
                                         <div class="min-w-0">
                                             <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                Python & ETL Automation
+                                                Python, OOP & ETL Pipelines
                                             </div>
                                             <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                Pandas, NumPy, pyodbc, pytest
+                                                Pandas, Requests, API Extraction, JSON/CSV
                                             </div>
                                         </div>
                                     </div>
@@ -241,7 +241,7 @@
                                                 SQL Server & Data Modeling
                                             </div>
                                             <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                T-SQL, SSMS, Star Schema, CTEs
+                                                SSMS, T-SQL, pyodbc, CTEs, Window Funcs, ERD
                                             </div>
                                         </div>
                                     </div>
@@ -256,10 +256,10 @@
                                         </span>
                                         <div class="min-w-0">
                                             <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                Docker & Linux Systems
+                                                Data Quality & Automation
                                             </div>
                                             <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                Containers, CLI, Shell, Git
+                                                Validation, Deduplication, Schema Verification
                                             </div>
                                         </div>
                                     </div>
@@ -274,10 +274,10 @@
                                         </span>
                                         <div class="min-w-0">
                                             <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                Microsoft Azure Cloud
+                                                DevOps, Linux & Tools
                                             </div>
                                             <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                DEPI Track, Cloud Data Foundations
+                                                Docker, Git, GitHub, Linux CLI, Flask, Selenium
                                             </div>
                                         </div>
                                     </div>
@@ -317,38 +317,51 @@
             </div>
 
             <!-- Showcase Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[540px]">
                 
                 <!-- Left Nav / Selectors -->
                 <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-cyberBorder divide-y divide-cyberBorder font-mono">
                     
+                    <!-- Tab 0: Global Weather (NEW & FEATURED) -->
                     <button onclick="switchTab(0)" id="btn-tab-0" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime">
                         <div class="flex items-center gap-4">
                             <span class="text-xs text-techGray font-bold group-hover:text-neonLime">01</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">METRO DATA PIPELINE</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">GLOBAL WEATHER PIPELINE</span>
                         </div>
-                        <span class="text-xs font-mono text-neonLime">[ACTIVE]</span>
+                        <span class="text-xs font-mono text-neonLime">[FEATURED]</span>
                     </button>
 
+                    <!-- Tab 1: Metro Data Pipeline -->
                     <button onclick="switchTab(1)" id="btn-tab-1" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
                             <span class="text-xs text-techGray font-bold group-hover:text-neonLime">02</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">METRO DATA PIPELINE</span>
+                        </div>
+                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                    </button>
+
+                    <!-- Tab 2: Student Performance -->
+                    <button onclick="switchTab(2)" id="btn-tab-2" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">03</span>
                             <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">STUDENT PERFORMANCE ETL</span>
                         </div>
                         <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
                     </button>
 
-                    <button onclick="switchTab(2)" id="btn-tab-2" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <!-- Tab 3: Railway Ticket System -->
+                    <button onclick="switchTab(3)" id="btn-tab-3" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">03</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">04</span>
                             <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">RAILWAY TICKET SYSTEM</span>
                         </div>
                         <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
                     </button>
 
-                    <button onclick="switchTab(3)" id="btn-tab-3" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <!-- Tab 4: LeetCode 50 SQL -->
+                    <button onclick="switchTab(4)" id="btn-tab-4" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">04</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">05</span>
                             <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">LEETCODE 50 SQL ARCH</span>
                         </div>
                         <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
@@ -360,16 +373,16 @@
                 <div class="lg:col-span-7 bg-neonLime text-black p-8 sm:p-14 flex flex-col justify-between relative transition-all duration-300" id="project-display-box">
                     <div>
                         <div class="flex justify-between items-start font-mono text-xs uppercase tracking-widest pb-6 border-b border-black/20">
-                            <span class="font-bold text-sm" id="proj-tag">01 WORKFLOW & TELEMETRY</span>
-                            <span class="font-bold" id="proj-status">ACTIVE INGESTION: STAGE 1 OF 5</span>
+                            <span class="font-bold text-sm" id="proj-tag">01 REST API INGESTION & DATA LAKE</span>
+                            <span class="font-bold" id="proj-status">STATUS: PRODUCTION-READY</span>
                         </div>
 
                         <h3 class="font-condensed text-5xl sm:text-7xl uppercase tracking-tight font-black mt-6" id="proj-title">
-                            METRO DATA PIPELINE
+                            GLOBAL WEATHER PIPELINE
                         </h3>
 
                         <p class="mt-4 font-mono text-xs sm:text-sm text-black/85 leading-relaxed uppercase" id="proj-desc">
-                            Pure data-engineering pipeline ingesting, profiling, and validating messy passenger JSON events and CSV train telemetry. Implements environment-driven configurations, structured Python logging, and loading into Microsoft SQL Server.
+                            Automated end-to-end ETL pipeline extracting live atmospheric metrics across global cities via REST APIs. Incorporates robust rate-limiting, schema validation, missing data handling, deduplication, structured transformation with Pandas, and automated persistent loading into structured storage.
                         </p>
                     </div>
 
@@ -377,12 +390,13 @@
                         <div class="flex flex-wrap gap-2 mb-8 font-mono text-xs" id="proj-stack">
                             <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTHON</span>
                             <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PANDAS</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">SQL SERVER</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYODBC</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTEST</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">REST API</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">JSON</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">DATA QUALITY</span>
+                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">AUTOMATION</span>
                         </div>
 
-                        <a href="https://github.com/ahmed-ibrahim-EG" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
+                        <a href="https://github.com/ahmed-ibrahim-EG/Globalweather-pipeline" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
                             <span>INSPECT REPOSITORY</span>
                             <span>↗</span>
                         </a>
@@ -458,68 +472,68 @@
         </div>
     </section>
 
-    <!-- SECTION: TECHNICAL MATRIX -->
+    <!-- SECTION: TECHNICAL MATRIX (UPDATED COMPREHENSIVE SKILLS) -->
     <section id="matrix" class="border-b border-cyberBorder bg-cyberDark">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
             
             <div class="p-6 sm:p-10 border-b border-cyberBorder flex justify-between items-center font-mono">
                 <span class="text-neonLime text-sm sm:text-base font-bold uppercase tracking-widest">03 TECHNICAL MATRIX</span>
-                <span class="text-techGray text-xs uppercase tracking-widest">TOOLS & STACK 2026</span>
+                <span class="text-techGray text-xs uppercase tracking-widest">ENGINEERING COMPETENCIES & STACK</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-cyberBorder">
                 
-                <!-- Col 1 -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                <!-- Col 1: ETL & Pipeline Architecture -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
                     <div>
                         <div class="font-mono text-xs text-techGray mb-6 font-bold">01</div>
                         <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            ETL & ELT Design
+                            ETL / ELT & Pipelines
                         </h4>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
-                            Pipeline Automation, Data Cleansing, Schema Validation, Transformations, Star Schema & ERD Modeling.
+                            Data Pipelines, Extraction, Transformation, Loading, Pipeline Automation, API Data Extraction, JSON, CSV Processing, File Handling, Transformation Workflows.
                         </p>
                     </div>
                     <div class="h-1 w-10 bg-neonLime mt-8"></div>
                 </div>
 
-                <!-- Col 2 -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                <!-- Col 2: Advanced SQL & Data Modeling -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
                     <div>
                         <div class="font-mono text-xs text-techGray mb-6 font-bold">02</div>
                         <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            Advanced SQL
+                            SQL & Data Modeling
                         </h4>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
-                            Microsoft SQL Server (SSMS), SQLite, Window Functions, CTEs, Complex Joins, Normalization, Query Tuning.
+                            SQL, Microsoft SQL Server, SSMS, Relational Databases, Data Modeling, ERD, Joins, Subqueries & Correlated Subqueries, CTEs, Window Functions, CASE Statements, Views, Stored Procedures, SQL Indexes.
                         </p>
                     </div>
                     <div class="h-1 w-10 bg-neonLime mt-8"></div>
                 </div>
 
-                <!-- Col 3 -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                <!-- Col 3: Core Programming & Libraries -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
                     <div>
                         <div class="font-mono text-xs text-techGray mb-6 font-bold">03</div>
                         <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            Dev & Libraries
+                            Core Dev & Libraries
                         </h4>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
-                            Python, Pandas, NumPy, pyodbc, Requests, pytest, Flask, FastAPI, Selenium, Java (basics), PHP.
+                            Python, Pandas, Database Connectivity, pyodbc, Requests, Object-Oriented Programming (OOP), Exception Handling, Flask, Selenium, Java (Basic).
                         </p>
                     </div>
                     <div class="h-1 w-10 bg-neonLime mt-8"></div>
                 </div>
 
-                <!-- Col 4 -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[300px]">
+                <!-- Col 4: Data Quality & Infrastructure -->
+                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
                     <div>
                         <div class="font-mono text-xs text-techGray mb-6 font-bold">04</div>
                         <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            Infrastructure & Cloud
+                            Quality & DevOps
                         </h4>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
-                            Docker Containers, Linux CLI, Shell Scripting, Git & GitHub, Microsoft Azure Fundamentals, Draw.io.
+                            Data Quality, Data Cleaning, Data Validation, Schema Validation, Missing Data Handling, Data Deduplication, Data Engineering Fundamentals, Git, GitHub, Linux, Docker.
                         </p>
                     </div>
                     <div class="h-1 w-10 bg-neonLime mt-8"></div>
@@ -689,7 +703,15 @@
     <script>
         const projectData = [
             {
-                tag: "01 WORKFLOW & TELEMETRY",
+                tag: "01 REST API INGESTION & DATA LAKE",
+                status: "STATUS: PRODUCTION-READY",
+                title: "GLOBAL WEATHER PIPELINE",
+                desc: "Automated end-to-end ETL pipeline extracting live atmospheric metrics across global cities via REST APIs. Incorporates robust rate-limiting, schema validation, missing data handling, deduplication, structured transformation with Pandas, and automated persistent loading into structured storage.",
+                stack: ["PYTHON", "PANDAS", "REST API", "JSON", "DATA QUALITY", "AUTOMATION"],
+                link: "https://github.com/ahmed-ibrahim-EG/Globalweather-pipeline"
+            },
+            {
+                tag: "02 WORKFLOW & TELEMETRY",
                 status: "ACTIVE INGESTION: STAGE 1 OF 5",
                 title: "METRO DATA PIPELINE",
                 desc: "Pure data-engineering pipeline ingesting, profiling, and validating messy passenger JSON events and CSV train telemetry. Implements environment-driven configurations, structured Python logging, and loading into Microsoft SQL Server.",
@@ -697,7 +719,7 @@
                 link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
-                tag: "02 DATA QUALITY ITERATIONS",
+                tag: "03 DATA QUALITY ITERATIONS",
                 status: "COMPLETED: 7 ITERATIONS",
                 title: "STUDENT PERFORMANCE ETL",
                 desc: "End-to-end multi-phase ETL pipeline designed to extract, explore, validate, clean, and transform student performance records. Raised output quality score from 5.5/10 to 9.5/10 through refined error-handling logic.",
@@ -705,7 +727,7 @@
                 link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
-                tag: "03 RESERVATION AUTOMATION",
+                tag: "04 RESERVATION AUTOMATION",
                 status: "COMPLETED: DEPLOYED",
                 title: "RAILWAY TICKET SYSTEM",
                 desc: "Modular ETL architecture to extract, parse, validate, and clean raw railway ticket reservation data. Automated anomaly detection for timestamps and missing fields for downstream analysis.",
@@ -713,7 +735,7 @@
                 link: "https://github.com/ahmed-ibrahim-EG"
             },
             {
-                tag: "04 QUERY ARCHITECTURE",
+                tag: "05 QUERY ARCHITECTURE",
                 status: "ACTIVE SOLVING: LEETCODE 50",
                 title: "LEETCODE 50 SQL ARCH",
                 desc: "Curated repository of solutions to top analytical SQL challenges on SQL Server. Focused on window functions, CTEs, complex relational join plans, and NULL handling optimization.",
@@ -745,10 +767,12 @@
             // Update Button Styles
             for (let i = 0; i < projectData.length; i++) {
                 const btn = document.getElementById(`btn-tab-${i}`);
-                if (i === index) {
-                    btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime';
-                } else {
-                    btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent';
+                if (btn) {
+                    if (i === index) {
+                        btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime';
+                    } else {
+                        btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent';
+                    }
                 }
             }
         }
