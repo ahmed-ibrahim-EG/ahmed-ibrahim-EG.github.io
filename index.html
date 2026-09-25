@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHMED IBRAHIM — Junior Data Engineer — Portfolio 2026</title>
-    <meta name="description" content="Portfolio of Ahmed Ibrahim — Junior Data Engineer specializing in Python/Pandas ETL pipelines, SQL Server architectures, API ingestion, and relational data modeling.">
+    <title>AHMED IBRAHIM — Data Engineer — Portfolio 2026</title>
+    <meta name="description" content="Portfolio of Ahmed Ibrahim — Data Engineer specializing in Python/Pandas ETL pipelines, SQL Server architectures, API ingestion, and relational data modeling.">
 
-    <!-- Fonts -->
+    <!-- Fonts: Inter for ultra-clean readability + Space Grotesk & Anton for bold technical punch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,17 +18,19 @@
             theme: {
                 extend: {
                     colors: {
-                        cyberDark: '#08090C',
-                        cyberCard: '#0F1117',
-                        cyberBorder: 'rgba(255, 255, 255, 0.12)',
-                        neonLime: '#CCFF00',
-                        neonLimeDim: '#99CC00',
-                        techGray: '#8E95A5',
+                        cyberDark: '#F8FAFC',       /* Soft Slate Page Background */
+                        cyberCard: '#FFFFFF',       /* Pure White Cards */
+                        cyberBorder: '#E2E8F0',     /* Light Slate Border */
+                        navyPrimary: '#0F172A',     /* Deep Navy for Headings & Text */
+                        royalBlue: '#2563EB',       /* Royal Blue Accent */
+                        royalBlueHover: '#1D4ED8',  /* Deep Blue Hover */
+                        iceBlue: '#EFF6FF',         /* Ice Blue Badge Tint */
+                        techGray: '#64748B',        /* Cool Slate Muted Text */
                     },
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
                         condensed: ['Anton', 'sans-serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
                     }
                 }
@@ -37,260 +39,359 @@
     </script>
 
     <style>
-        body {
-            background-color: #08090C;
-            color: #FFFFFF;
-            overflow-x: hidden;
-            selection-background-color: #CCFF00;
-            selection-color: #08090C;
+        :root {
+            --color-bg: #F8FAFC;
+            --color-card: #FFFFFF;
+            --color-border: #E2E8F0;
+            --color-accent: #2563EB;
+            --color-accent-hover: #1D4ED8;
+            --color-tint: #EFF6FF;
+            --color-text-main: #0F172A;
+            --color-text-muted: #64748B;
         }
 
-        /* Checkerboard Pattern */
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            overflow-x: hidden;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
         .pattern-checkerboard {
-            background-image: 
-                linear-gradient(45deg, #CCFF00 25%, transparent 25%), 
-                linear-gradient(-45deg, #CCFF00 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #CCFF00 75%), 
-                linear-gradient(-45deg, transparent 75%, #CCFF00 75%);
+            background-image:
+                linear-gradient(45deg, rgba(37, 99, 235, 0.08) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(37, 99, 235, 0.08) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(37, 99, 235, 0.08) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(37, 99, 235, 0.08) 75%);
             background-size: 14px 14px;
             background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
         }
 
-        /* Technical Grid */
-        .bg-cyber-grid {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #08090C;
+            background: var(--color-bg);
         }
         ::-webkit-scrollbar-thumb {
-            background: #20242F;
+            background: #CBD5E1;
             border-radius: 0px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #CCFF00;
+            background: var(--color-accent);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        #mobile-nav {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        #mobile-nav[data-open="true"] {
+            max-height: 520px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 0.5rem;
+            top: -3rem;
+            z-index: 60;
+            background: var(--color-accent);
+            color: #FFFFFF;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0.5rem;
         }
     </style>
 </head>
-<body class="font-sans antialiased bg-cyberDark text-white selection:bg-neonLime selection:text-black">
+<body class="font-sans antialiased bg-cyberDark text-navyPrimary selection:bg-royalBlue selection:text-white">
+
+    <a href="#main-content" class="skip-link px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest">
+        Skip to main content
+    </a>
 
     <!-- Top Grid Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-cyberDark/90 backdrop-blur-md border-b border-cyberBorder">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-cyberBorder shadow-sm">
         <div class="max-w-[1440px] mx-auto flex items-stretch justify-between h-14 sm:h-16">
-            
+
             <!-- Brand / Logo -->
-            <a href="#" class="flex items-center px-4 sm:px-8 border-r border-cyberBorder hover:bg-white/5 transition-colors gap-3 group">
-                <span class="w-3 h-3 bg-neonLime animate-pulse group-hover:scale-125 transition-transform"></span>
-                <span class="font-mono text-xs sm:text-sm tracking-wider font-bold text-white">[DE] AHMED IBRAHIM</span>
+            <a href="#" class="flex items-center px-4 sm:px-8 border-r border-cyberBorder hover:bg-slate-50 transition-colors gap-3 group">
+                <span class="w-3 h-3 bg-royalBlue animate-pulse group-hover:scale-125 transition-transform" aria-hidden="true"></span>
+                <span class="font-mono text-xs sm:text-sm tracking-wider font-bold text-navyPrimary">[DE] AHMED IBRAHIM</span>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden md:flex items-stretch font-mono text-xs tracking-widest uppercase">
-                <a href="#work" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
-                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">01</span>
+            <!-- Nav Links (desktop) -->
+            <nav class="hidden md:flex items-stretch font-mono text-xs tracking-widest uppercase" aria-label="Primary">
+                <a href="#work" class="group relative flex items-center gap-2 px-6 border-r border-cyberBorder text-techGray hover:text-navyPrimary transition-colors duration-300 hover:bg-slate-50">
+                    <span class="w-1.5 h-1.5 rounded-full bg-royalBlue scale-0 group-hover:scale-100 transition-transform duration-300" aria-hidden="true"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-royalBlue transition-colors" aria-hidden="true">01</span>
                     <span class="font-semibold tracking-wider">WORK</span>
-                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-royalBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" aria-hidden="true"></span>
                 </a>
 
-                <a href="#profile" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
-                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">02</span>
+                <a href="#profile" class="group relative flex items-center gap-2 px-6 border-r border-cyberBorder text-techGray hover:text-navyPrimary transition-colors duration-300 hover:bg-slate-50">
+                    <span class="w-1.5 h-1.5 rounded-full bg-royalBlue scale-0 group-hover:scale-100 transition-transform duration-300" aria-hidden="true"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-royalBlue transition-colors" aria-hidden="true">02</span>
                     <span class="font-semibold tracking-wider">PROFILE</span>
-                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-royalBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" aria-hidden="true"></span>
                 </a>
 
-                <a href="#matrix" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
-                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">03</span>
+                <a href="#matrix" class="group relative flex items-center gap-2 px-6 border-r border-cyberBorder text-techGray hover:text-navyPrimary transition-colors duration-300 hover:bg-slate-50">
+                    <span class="w-1.5 h-1.5 rounded-full bg-royalBlue scale-0 group-hover:scale-100 transition-transform duration-300" aria-hidden="true"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-royalBlue transition-colors" aria-hidden="true">03</span>
                     <span class="font-semibold tracking-wider">STACK</span>
-                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-royalBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" aria-hidden="true"></span>
                 </a>
 
-                <a href="#credentials" class="group relative flex items-center gap-2 px-7 border-r border-cyberBorder text-techGray hover:text-white transition-colors duration-300 hover:bg-white/[0.03]">
-                    <span class="w-1.5 h-1.5 rounded-full bg-neonLime scale-0 group-hover:scale-100 transition-transform duration-300"></span>
-                    <span class="text-[10px] text-techGray group-hover:text-neonLime transition-colors">04</span>
+                <a href="#credentials" class="group relative flex items-center gap-2 px-6 border-r border-cyberBorder text-techGray hover:text-navyPrimary transition-colors duration-300 hover:bg-slate-50">
+                    <span class="w-1.5 h-1.5 rounded-full bg-royalBlue scale-0 group-hover:scale-100 transition-transform duration-300" aria-hidden="true"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-royalBlue transition-colors" aria-hidden="true">04</span>
                     <span class="font-semibold tracking-wider">CREDENTIALS</span>
-                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-neonLime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-royalBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" aria-hidden="true"></span>
+                </a>
+
+                <a href="#services" class="group relative flex items-center gap-2 px-6 border-r border-cyberBorder text-techGray hover:text-navyPrimary transition-colors duration-300 hover:bg-slate-50">
+                    <span class="w-1.5 h-1.5 rounded-full bg-royalBlue scale-0 group-hover:scale-100 transition-transform duration-300" aria-hidden="true"></span>
+                    <span class="text-[10px] text-techGray group-hover:text-royalBlue transition-colors" aria-hidden="true">05</span>
+                    <span class="font-semibold tracking-wider">SERVICES</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-royalBlue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" aria-hidden="true"></span>
                 </a>
             </nav>
 
-            <!-- CTA Button -->
             <div class="flex items-stretch">
-                <a href="mailto:ibrhama064@gmail.com" class="flex items-center px-6 sm:px-8 bg-neonLime text-black font-mono font-bold text-xs uppercase tracking-widest hover:bg-white hover:scale-[1.02] active:scale-95 transition-all">
+                <!-- CTA Button -->
+                <a href="mailto:ibrhama064@gmail.com" class="hidden xs:flex items-center px-6 sm:px-8 bg-royalBlue text-white font-mono font-bold text-xs uppercase tracking-widest hover:bg-royalBlueHover hover:scale-[1.02] active:scale-95 transition-all shadow-sm">
                     LET'S TALK ↗
                 </a>
+
+                <!-- Mobile menu toggle -->
+                <button
+                    id="mobile-nav-toggle"
+                    type="button"
+                    class="md:hidden flex items-center px-4 border-l border-cyberBorder text-navyPrimary hover:bg-slate-50 transition-colors"
+                    aria-expanded="false"
+                    aria-controls="mobile-nav"
+                >
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <svg id="mobile-nav-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="mobile-nav-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
         </div>
+
+        <!-- Mobile Nav Panel -->
+        <nav id="mobile-nav" data-open="false" class="md:hidden bg-white border-b border-cyberBorder font-mono text-xs tracking-widest uppercase shadow-lg" aria-label="Mobile">
+            <a href="#work" class="mobile-nav-link flex items-center gap-3 px-6 py-4 border-b border-cyberBorder text-techGray hover:text-navyPrimary hover:bg-slate-50 transition-colors">
+                <span class="text-[10px] text-royalBlue">01</span>
+                <span class="font-semibold tracking-wider">WORK</span>
+            </a>
+            <a href="#profile" class="mobile-nav-link flex items-center gap-3 px-6 py-4 border-b border-cyberBorder text-techGray hover:text-navyPrimary hover:bg-slate-50 transition-colors">
+                <span class="text-[10px] text-royalBlue">02</span>
+                <span class="font-semibold tracking-wider">PROFILE</span>
+            </a>
+            <a href="#matrix" class="mobile-nav-link flex items-center gap-3 px-6 py-4 border-b border-cyberBorder text-techGray hover:text-navyPrimary hover:bg-slate-50 transition-colors">
+                <span class="text-[10px] text-royalBlue">03</span>
+                <span class="font-semibold tracking-wider">STACK</span>
+            </a>
+            <a href="#credentials" class="mobile-nav-link flex items-center gap-3 px-6 py-4 border-b border-cyberBorder text-techGray hover:text-navyPrimary hover:bg-slate-50 transition-colors">
+                <span class="text-[10px] text-royalBlue">04</span>
+                <span class="font-semibold tracking-wider">CREDENTIALS</span>
+            </a>
+            <a href="#services" class="mobile-nav-link flex items-center gap-3 px-6 py-4 border-b border-cyberBorder text-techGray hover:text-navyPrimary hover:bg-slate-50 transition-colors">
+                <span class="text-[10px] text-royalBlue">05</span>
+                <span class="font-semibold tracking-wider">SERVICES</span>
+            </a>
+            <a href="mailto:ibrhama064@gmail.com" class="mobile-nav-link flex items-center gap-3 px-6 py-4 bg-royalBlue text-white font-bold">
+                LET'S TALK ↗
+            </a>
+        </nav>
     </header>
 
+    <main id="main-content">
+
     <!-- HERO SECTION -->
-    <section class="relative pt-24 sm:pt-28 border-b border-cyberBorder bg-cyberDark overflow-hidden">
+    <section class="relative pt-24 sm:pt-28 border-b border-cyberBorder bg-cyberDark overflow-hidden" aria-labelledby="hero-heading">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
-            
+
             <!-- Meta Bar -->
-            <div class="flex flex-wrap items-center justify-between border-b border-cyberBorder px-6 py-3 font-mono text-xs text-techGray tracking-widest uppercase">
+            <div class="flex flex-wrap items-center justify-between border-b border-cyberBorder px-6 py-3 font-mono text-xs text-techGray tracking-widest uppercase gap-y-2 bg-white/60">
                 <div class="flex items-center gap-2">
-                    <span class="text-neonLime">▶</span>
+                    <span class="text-royalBlue" aria-hidden="true">▶</span>
                     <span>PORTFOLIO CODE</span>
                 </div>
                 <div>
-                    <span>STATUS: AVAILABLE FOR ROLES & INTERNSHIPS</span>
+                    <span>STATUS: AVAILABLE FOR ROLES &amp; CONTRACTS</span>
                 </div>
             </div>
 
             <!-- Hero Main Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[620px]">
-                
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
+
                 <!-- Left Huge Title Column -->
-                <div class="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-cyberBorder relative">
+                <div class="lg:col-span-7 xl:col-span-8 p-6 sm:p-12 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-cyberBorder relative bg-cyberDark">
                     <div class="space-y-1">
-                        <div class="font-mono text-sm tracking-widest uppercase text-neonLime font-bold mb-4">00 JUNIOR DATA ENGINEER</div>
-                        <h1 class="font-condensed text-7xl sm:text-9xl md:text-[10.5rem] leading-[0.85] tracking-tight uppercase select-none text-white block">
-                            AHMED
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="inline-block w-2.5 h-2.5 bg-royalBlue rounded-full animate-ping"></span>
+                            <p class="font-mono text-xs sm:text-sm tracking-widest uppercase text-royalBlue font-bold">00 DATA ENGINEER</p>
+                        </div>
+                        <h1 id="hero-heading" class="font-condensed text-7xl sm:text-9xl md:text-[10.5rem] leading-[0.85] tracking-tight uppercase select-none">
+                            <span class="block text-navyPrimary">AHMED</span>
+                            <span class="block text-slate-400">IBRAHIM</span>
                         </h1>
-                        <h2 class="font-condensed text-7xl sm:text-9xl md:text-[10.5rem] leading-[0.85] tracking-tight uppercase select-none text-zinc-300 block">
-                            IBRAHIM
-                        </h2>
                     </div>
 
-                    <!-- Clean Bio Paragraph -->
-                    <div class="pt-12 sm:pt-16 max-w-2xl">
-                        <p class="font-mono text-xs sm:text-sm md:text-base text-techGray leading-relaxed uppercase">
-                            SECOND-YEAR <span class="text-white font-bold">COMPUTERS & DATA SCIENCE STUDENT @ ALEXANDRIA UNIVERSITY</span> & <span class="text-neonLime font-bold">MICROSOFT DEPI DATA ENGINEER TRAINEE</span>. SPECIALIZING IN <span class="text-white font-bold">PYTHON & PANDAS ETL PIPELINES</span>, STAR SCHEMA MODELING, REST API INGESTION, AND <span class="text-neonLime font-bold">AUDITABLE SQL SERVER SOLUTIONS</span> BUILT TO INGEST, VALIDATE, AND SCALE REAL-WORLD DATA.
-                        </p>
+                    <!-- Clean Bio Paragraph with Soft Card Border & Blue Accents -->
+                    <div class="pt-10 sm:pt-14 max-w-3xl">
+                        <div class="relative p-5 sm:p-7 rounded-sm bg-white border-l-4 border-royalBlue border-y border-r border-cyberBorder shadow-sm transition-all duration-300">
+                            <p class="font-mono text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed uppercase tracking-wide">
+                                <span class="text-navyPrimary font-black bg-iceBlue px-2 py-0.5 rounded-xs text-royalBlue border border-royalBlue/20">DATA ENGINEER</span> &amp; <span class="text-royalBlue font-extrabold">MICROSOFT DEPI SPECIALIST</span>. SPECIALIZING IN ARCHITECTING RESILIENT <span class="text-navyPrimary font-bold underline decoration-royalBlue decoration-2 underline-offset-4">PYTHON &amp; PANDAS ETL PIPELINES</span>, STAR SCHEMA MODELING, REST API INGESTION, AND <span class="text-royalBlue font-bold">AUDITABLE SQL SERVER SOLUTIONS</span> BUILT TO INGEST, VALIDATE, AND SCALE REAL-WORLD DATA.<span class="inline-block w-2.5 h-5 bg-royalBlue ml-1.5 align-middle animate-pulse"></span>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="pt-8 flex items-center gap-6 font-mono text-xs tracking-wider text-techGray uppercase border-t border-cyberBorder mt-8">
+                    <div class="pt-8 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs tracking-wider text-techGray uppercase border-t border-cyberBorder mt-8">
                         <span>BASED IN ALEXANDRIA, EGYPT</span>
-                        <span>•</span>
-                        <a href="#work" class="text-neonLime hover:underline">SCROLL TO EXPLORE ↓</a>
+                        <span aria-hidden="true">•</span>
+                        <a href="#work" class="text-royalBlue hover:underline flex items-center gap-1.5 group font-bold">
+                            <span>SCROLL TO EXPLORE</span>
+                            <span class="inline-block transform group-hover:translate-y-1 transition-transform">↓</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Right Side Badge Card -->
-                <div class="lg:col-span-5 xl:col-span-4 bg-neonLime text-black p-6 sm:p-8 flex flex-col justify-between relative shadow-2xl">
+                <!-- Right Side Badge Card (Royal Blue Contrast Card) -->
+                <div class="lg:col-span-5 xl:col-span-4 bg-royalBlue text-white p-6 sm:p-8 flex flex-col justify-between relative shadow-xl">
                     <div>
                         <!-- Card Top Bar -->
-                        <div class="flex items-start justify-between font-mono text-xs uppercase tracking-widest mb-6">
+                        <div class="flex items-start justify-between font-mono text-xs uppercase tracking-widest mb-5">
                             <span class="font-bold tracking-wider">[ ARCH CARD ]</span>
-                            <span class="font-bold text-black/70">#01</span>
+                            <span class="font-bold text-white/80">#01</span>
                         </div>
 
                         <!-- Image Frame -->
-                        <div class="w-full aspect-[4/5] bg-black p-2 border-2 border-black mb-6 shadow-xl relative overflow-hidden">
-                            <img src="./profile.png" alt="Ahmed Ibrahim" class="w-full h-full object-cover object-top grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                        <div class="w-full aspect-[4/5] bg-navyPrimary p-2 border-2 border-white mb-5 shadow-lg relative overflow-hidden">
+                            <img src="./profile.png" alt="Ahmed Ibrahim" class="w-full h-full object-cover object-top grayscale contrast-125 hover:grayscale-0 transition-all duration-500" loading="lazy">
                         </div>
 
                         <!-- Profile Name -->
-                        <div class="border-b-2 border-black pb-4">
-                            <h3 class="font-condensed text-3xl sm:text-4xl uppercase leading-tight font-black tracking-tight text-black">
+                        <div class="border-b-2 border-white/30 pb-3">
+                            <h2 class="font-condensed text-3xl sm:text-4xl uppercase leading-tight font-black tracking-tight text-white">
                                 Ahmed IBRAHIM
-                            </h3>
-                            <p class="font-mono text-xs font-bold uppercase tracking-wider mt-1 text-black/80">
-                                DATA PIPELINES & SQL ARCHITECTURE
+                            </h2>
+                            <p class="font-mono text-xs font-bold uppercase tracking-wider mt-1 text-white/90">
+                                DATA PIPELINES &amp; SQL ARCHITECTURE
                             </p>
                         </div>
 
                         <!-- Core Technologies Section -->
-                        <div class="mt-5 space-y-3 font-mono">
+                        <div class="mt-4 space-y-2.5 font-mono">
                             <div class="flex items-center justify-between">
-                                <span class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-black">
-                                    CORE TECHNOLOGIES
+                                <span class="font-condensed text-xl sm:text-2xl uppercase font-black tracking-tight text-white">
+                                    CORE STACK
                                 </span>
-                                <span class="text-[10px] font-mono bg-black text-neonLime px-2 py-0.5 font-bold uppercase tracking-wider">
-                                    PROD STACK
+                                <span class="text-[10px] font-mono bg-white text-royalBlue px-2 py-0.5 font-bold uppercase tracking-wider">
+                                    TOP PROFICIENCY
                                 </span>
                             </div>
-                            
-                            <div class="space-y-2.5">
-                                
-                                <!-- Card 1 -->
-                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+
+                            <ul class="space-y-2 list-none">
+                                <!-- Rank 1: PYTHON -->
+                                <li class="group bg-navyPrimary text-white hover:bg-slate-900 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md flex items-center justify-between border-2 border-white/20">
                                     <div class="flex items-center gap-3 min-w-0">
-                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                        <span class="font-mono text-xs font-black bg-white text-navyPrimary px-2 py-0.5 rounded-xs flex-shrink-0" aria-hidden="true">
                                             01
                                         </span>
                                         <div class="min-w-0">
-                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                Python, OOP & ETL Pipelines
+                                            <div class="font-display font-extrabold text-sm sm:text-base uppercase tracking-tight text-white">
+                                                PYTHON
                                             </div>
-                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                Pandas, Requests, API Extraction, JSON/CSV
+                                            <div class="text-[11px] text-slate-300 font-mono truncate">
+                                                Pandas, OOP, Requests &amp; Ingestion
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-black text-black">↗</span>
-                                </div>
+                                    <span class="text-sm font-black text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
+                                </li>
 
-                                <!-- Card 2 -->
-                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                <!-- Rank 2: SQL SERVER -->
+                                <li class="group bg-navyPrimary text-white hover:bg-slate-900 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md flex items-center justify-between border-2 border-white/20">
                                     <div class="flex items-center gap-3 min-w-0">
-                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                        <span class="font-mono text-xs font-black bg-white text-navyPrimary px-2 py-0.5 rounded-xs flex-shrink-0" aria-hidden="true">
                                             02
                                         </span>
                                         <div class="min-w-0">
-                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                SQL Server & Data Modeling
+                                            <div class="font-display font-extrabold text-sm sm:text-base uppercase tracking-tight text-white">
+                                                SQL SERVER
                                             </div>
-                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                SSMS, T-SQL, pyodbc, CTEs, Window Funcs, ERD
+                                            <div class="text-[11px] text-slate-300 font-mono truncate">
+                                                SSMS, T-SQL, CTEs &amp; Star Schema
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-black text-black">↗</span>
-                                </div>
+                                    <span class="text-sm font-black text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
+                                </li>
 
-                                <!-- Card 3 -->
-                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                <!-- Rank 3: ETL PIPELINES -->
+                                <li class="group bg-navyPrimary text-white hover:bg-slate-900 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md flex items-center justify-between border-2 border-white/20">
                                     <div class="flex items-center gap-3 min-w-0">
-                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                        <span class="font-mono text-xs font-black bg-white text-navyPrimary px-2 py-0.5 rounded-xs flex-shrink-0" aria-hidden="true">
                                             03
                                         </span>
                                         <div class="min-w-0">
-                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                Data Quality & Automation
+                                            <div class="font-display font-extrabold text-sm sm:text-base uppercase tracking-tight text-white">
+                                                ETL PIPELINES
                                             </div>
-                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                Validation, Deduplication, Schema Verification
+                                            <div class="text-[11px] text-slate-300 font-mono truncate">
+                                                Automation, REST APIs &amp; Data Validation
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-black text-black">↗</span>
-                                </div>
+                                    <span class="text-sm font-black text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
+                                </li>
 
-                                <!-- Card 4 -->
-                                <div class="bg-black/5 hover:bg-black/10 border-2 border-black p-3 transition-all duration-200 hover:translate-x-1 flex items-center justify-between gap-3">
+                                <!-- Rank 4: LINUX -->
+                                <li class="group bg-navyPrimary text-white hover:bg-slate-900 p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md flex items-center justify-between border-2 border-white/20">
                                     <div class="flex items-center gap-3 min-w-0">
-                                        <span class="font-mono text-xs font-black bg-black text-neonLime px-2 py-1 flex-shrink-0">
+                                        <span class="font-mono text-xs font-black bg-white text-navyPrimary px-2 py-0.5 rounded-xs flex-shrink-0" aria-hidden="true">
                                             04
                                         </span>
                                         <div class="min-w-0">
-                                            <div class="font-sans font-extrabold text-xs sm:text-sm text-black uppercase tracking-tight truncate">
-                                                DevOps, Linux & Tools
+                                            <div class="font-display font-extrabold text-sm sm:text-base uppercase tracking-tight text-white">
+                                                LINUX &amp; CLI
                                             </div>
-                                            <div class="text-[11px] text-zinc-800 font-mono font-medium truncate">
-                                                Docker, Git, GitHub, Linux CLI, Flask, Selenium
+                                            <div class="text-[11px] text-slate-300 font-mono truncate">
+                                                Bash, Git, Shell Workflows &amp; Environment
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-black text-black">↗</span>
-                                </div>
-
-                            </div>
+                                    <span class="text-sm font-black text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
                     <!-- Card Footer Bar -->
-                    <div class="font-mono text-[11px] font-bold uppercase tracking-widest border-t-2 border-black pt-4 mt-6 flex justify-between">
-                        <span>DEPI MICROSOFT TRAINEE</span>
+                    <div class="font-mono text-[11px] font-bold uppercase tracking-widest border-t-2 border-white/30 pt-3 mt-4 flex justify-between text-white/90">
+                        <span>DEPI MICROSOFT SPECIALIST</span>
                         <span>ON THE GRID</span>
                     </div>
                 </div>
@@ -300,105 +401,105 @@
     </section>
 
     <!-- SECTION: WORK IN MOTION -->
-    <section id="work" class="border-b border-cyberBorder bg-cyberDark">
+    <section id="work" class="border-b border-cyberBorder bg-white" aria-labelledby="work-heading">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
-            
+
             <!-- Section Header -->
-            <div class="p-6 sm:p-12 border-b border-cyberBorder flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="p-6 sm:p-12 border-b border-cyberBorder flex flex-col md:flex-row md:items-end justify-between gap-4 bg-cyberDark">
                 <div>
-                    <div class="font-mono text-sm uppercase text-neonLime tracking-widest mb-3 font-bold">01 SELECTED LABS</div>
-                    <h2 class="font-condensed text-6xl sm:text-8xl uppercase tracking-tight leading-none font-bold">
-                        WORK <span class="text-zinc-600">IN MOTION</span>
+                    <p class="font-mono text-sm uppercase text-royalBlue tracking-widest mb-3 font-bold">01 SELECTED LABS</p>
+                    <h2 id="work-heading" class="font-condensed text-6xl sm:text-8xl uppercase tracking-tight leading-none font-bold text-navyPrimary">
+                        WORK <span class="text-slate-400">IN MOTION</span>
                     </h2>
                 </div>
                 <div class="font-mono text-xs text-techGray uppercase tracking-widest">
-                    [ 2026 — PIPELINES & ARCHITECTURE ]
+                    [ 2026 — PIPELINES &amp; ARCHITECTURE ]
                 </div>
             </div>
 
             <!-- Showcase Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[540px]">
-                
+
                 <!-- Left Nav / Selectors -->
-                <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-cyberBorder divide-y divide-cyberBorder font-mono">
-                    
-                    <!-- Tab 0: Global Weather (NEW & FEATURED) -->
-                    <button onclick="switchTab(0)" id="btn-tab-0" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime">
+                <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-cyberBorder divide-y divide-cyberBorder font-mono bg-white" role="tablist" aria-label="Selected projects" aria-orientation="vertical">
+
+                    <!-- Tab 0: Global Weather -->
+                    <button type="button" data-tab-index="0" id="btn-tab-0" role="tab" aria-selected="true" aria-controls="project-display-box" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-iceBlue border-l-4 border-royalBlue">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">01</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">GLOBAL WEATHER PIPELINE</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-royalBlue" aria-hidden="true">01</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-navyPrimary">GLOBAL WEATHER PIPELINE</span>
                         </div>
-                        <span class="text-xs font-mono text-neonLime">[FEATURED]</span>
+                        <span class="text-xs font-mono text-royalBlue font-bold">[FEATURED]</span>
                     </button>
 
                     <!-- Tab 1: Metro Data Pipeline -->
-                    <button onclick="switchTab(1)" id="btn-tab-1" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <button type="button" data-tab-index="1" id="btn-tab-1" role="tab" aria-selected="false" aria-controls="project-display-box" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-slate-50 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">02</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">METRO DATA PIPELINE</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-royalBlue" aria-hidden="true">02</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-navyPrimary">METRO DATA PIPELINE</span>
                         </div>
-                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                        <span class="text-xs font-mono text-techGray group-hover:text-navyPrimary" aria-hidden="true">+</span>
                     </button>
 
                     <!-- Tab 2: Student Performance -->
-                    <button onclick="switchTab(2)" id="btn-tab-2" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <button type="button" data-tab-index="2" id="btn-tab-2" role="tab" aria-selected="false" aria-controls="project-display-box" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-slate-50 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">03</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">STUDENT PERFORMANCE ETL</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-royalBlue" aria-hidden="true">03</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-navyPrimary">STUDENT PERFORMANCE ETL</span>
                         </div>
-                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                        <span class="text-xs font-mono text-techGray group-hover:text-navyPrimary" aria-hidden="true">+</span>
                     </button>
 
                     <!-- Tab 3: Railway Ticket System -->
-                    <button onclick="switchTab(3)" id="btn-tab-3" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <button type="button" data-tab-index="3" id="btn-tab-3" role="tab" aria-selected="false" aria-controls="project-display-box" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-slate-50 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">04</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">RAILWAY TICKET SYSTEM</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-royalBlue" aria-hidden="true">04</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-navyPrimary">RAILWAY TICKET SYSTEM</span>
                         </div>
-                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                        <span class="text-xs font-mono text-techGray group-hover:text-navyPrimary" aria-hidden="true">+</span>
                     </button>
 
                     <!-- Tab 4: LeetCode 50 SQL -->
-                    <button onclick="switchTab(4)" id="btn-tab-4" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent">
+                    <button type="button" data-tab-index="4" id="btn-tab-4" role="tab" aria-selected="false" aria-controls="project-display-box" class="project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-slate-50 border-l-4 border-transparent">
                         <div class="flex items-center gap-4">
-                            <span class="text-xs text-techGray font-bold group-hover:text-neonLime">05</span>
-                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-white">LEETCODE 50 SQL ARCH</span>
+                            <span class="text-xs text-techGray font-bold group-hover:text-royalBlue" aria-hidden="true">05</span>
+                            <span class="text-base sm:text-lg font-bold uppercase tracking-wider text-navyPrimary">LEETCODE 50 SQL ARCH</span>
                         </div>
-                        <span class="text-xs font-mono text-techGray group-hover:text-white">+</span>
+                        <span class="text-xs font-mono text-techGray group-hover:text-navyPrimary" aria-hidden="true">+</span>
                     </button>
 
                 </div>
 
-                <!-- Right Display Area -->
-                <div class="lg:col-span-7 bg-neonLime text-black p-8 sm:p-14 flex flex-col justify-between relative transition-all duration-300" id="project-display-box">
+                <!-- Right Display Area (Deep Navy High Contrast Card) -->
+                <div class="lg:col-span-7 bg-navyPrimary text-white p-8 sm:p-14 flex flex-col justify-between relative transition-all duration-300 shadow-md" id="project-display-box" role="tabpanel" aria-live="polite" aria-labelledby="btn-tab-0">
                     <div>
-                        <div class="flex justify-between items-start font-mono text-xs uppercase tracking-widest pb-6 border-b border-black/20">
-                            <span class="font-bold text-sm" id="proj-tag">01 REST API INGESTION & DATA LAKE</span>
-                            <span class="font-bold" id="proj-status">STATUS: PRODUCTION-READY</span>
+                        <div class="flex justify-between items-start font-mono text-xs uppercase tracking-widest pb-6 border-b border-white/20">
+                            <span class="font-bold text-sm text-blue-300" id="proj-tag">01 REST API INGESTION &amp; DATA LAKE</span>
+                            <span class="font-bold text-white/80" id="proj-status">STATUS: PRODUCTION-READY</span>
                         </div>
 
-                        <h3 class="font-condensed text-5xl sm:text-7xl uppercase tracking-tight font-black mt-6" id="proj-title">
+                        <h3 class="font-condensed text-5xl sm:text-7xl uppercase tracking-tight font-black mt-6 text-white" id="proj-title">
                             GLOBAL WEATHER PIPELINE
                         </h3>
 
-                        <p class="mt-4 font-mono text-xs sm:text-sm text-black/85 leading-relaxed uppercase" id="proj-desc">
+                        <p class="mt-4 font-mono text-xs sm:text-sm text-slate-300 leading-relaxed uppercase" id="proj-desc">
                             Automated end-to-end ETL pipeline extracting live atmospheric metrics across global cities via REST APIs. Incorporates robust rate-limiting, schema validation, missing data handling, deduplication, structured transformation with Pandas, and automated persistent loading into structured storage.
                         </p>
                     </div>
 
                     <div class="pt-8">
-                        <div class="flex flex-wrap gap-2 mb-8 font-mono text-xs" id="proj-stack">
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PYTHON</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">PANDAS</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">REST API</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">JSON</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">DATA QUALITY</span>
-                            <span class="px-3 py-1 bg-black text-neonLime uppercase font-bold">AUTOMATION</span>
-                        </div>
+                        <ul class="flex flex-wrap gap-2 mb-8 font-mono text-xs list-none" id="proj-stack">
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">PYTHON</li>
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">PANDAS</li>
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">REST API</li>
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">JSON</li>
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">DATA QUALITY</li>
+                            <li class="px-3 py-1 bg-royalBlue text-white uppercase font-bold">AUTOMATION</li>
+                        </ul>
 
-                        <a href="https://github.com/ahmed-ibrahim-EG/Globalweather-pipeline" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-black bg-black text-white px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-black transition-colors">
+                        <a href="https://github.com/ahmed-ibrahim-EG/Globalweather-pipeline" target="_blank" rel="noopener noreferrer" id="proj-link" class="inline-flex items-center gap-2 border-2 border-white bg-white text-navyPrimary px-6 py-3 font-mono text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-white transition-colors">
                             <span>INSPECT REPOSITORY</span>
-                            <span>↗</span>
+                            <span aria-hidden="true">↗</span>
                         </a>
                     </div>
                 </div>
@@ -408,292 +509,444 @@
     </section>
 
     <!-- SECTION: THE PROFILE -->
-    <section id="profile" class="border-b border-cyberBorder bg-cyberDark">
+    <section id="profile" class="border-b border-cyberBorder bg-cyberDark" aria-labelledby="profile-heading">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
             <div class="grid grid-cols-1 lg:grid-cols-12">
-                
-                <!-- Left Checkerboard Card -->
-                <div class="lg:col-span-5 p-8 sm:p-14 border-b lg:border-b-0 lg:border-r border-cyberBorder flex items-center justify-center">
+
+                <!-- Left Checkerboard Card: Academic Foundation With Faculty Logo & CS -->
+                <div class="lg:col-span-5 p-8 sm:p-14 border-b lg:border-b-0 lg:border-r border-cyberBorder flex items-center justify-center bg-white">
                     <div class="pattern-checkerboard p-3 w-full max-w-sm aspect-square border border-cyberBorder">
-                        <div class="w-full h-full bg-cyberDark border border-cyberBorder p-8 flex flex-col justify-between relative overflow-hidden">
-                            <div class="font-mono text-xs text-neonLime uppercase tracking-widest font-bold">EDUCATION</div>
+                        <div class="w-full h-full bg-white border border-cyberBorder p-8 flex flex-col justify-between relative overflow-hidden shadow-sm">
                             
-                            <!-- Big CS Monogram -->
-                            <div class="font-condensed text-8xl sm:text-9xl text-white font-black leading-none">
-                                CS
+                            <!-- Card Header: Title + Faculty Logo -->
+                            <div class="flex items-center justify-between">
+                                <p class="font-mono text-xs text-royalBlue uppercase tracking-widest font-bold">ACADEMIC FOUNDATION</p>
+                                <img src="./faculty-logo.png" alt="Alexandria University Logo" class="w-9 h-9 object-contain opacity-90 hover:opacity-100 transition-opacity" loading="lazy">
                             </div>
 
+                            <!-- Big CS Monogram -->
+                            <p class="font-condensed text-8xl sm:text-9xl text-navyPrimary font-black leading-none my-auto select-none" aria-hidden="true">
+                                CS
+                            </p>
+
+                            <!-- Academic Details -->
                             <div class="font-mono text-xs text-techGray uppercase tracking-wider font-semibold space-y-1">
-                                <div class="text-white font-bold">Faculty of Computers & Data Science</div>
-                                <div>Alexandria University — Year 2</div>
-                                <div class="text-neonLime font-bold">GPA: 2.7</div>
+                                <p class="text-navyPrimary font-bold">Faculty of Computers &amp; Data Science</p>
+                                <p>Alexandria University</p>
+                                <p class="text-royalBlue font-bold">SPECIALIZATION: DATA ENGINEERING</p>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Statement & Metrics -->
-                <div class="lg:col-span-7 p-8 sm:p-14 flex flex-col justify-between">
+                <div class="lg:col-span-7 p-8 sm:p-14 flex flex-col justify-between bg-cyberDark">
                     <div>
-                        <div class="font-mono text-sm uppercase text-neonLime tracking-widest mb-4 font-bold">02 THE PROFILE</div>
-                        <h2 class="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight leading-snug text-white">
+                        <p class="font-mono text-sm uppercase text-royalBlue tracking-widest mb-4 font-bold">02 THE PROFILE</p>
+                        <h2 id="profile-heading" class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight leading-snug text-navyPrimary">
                             I'M AHMED — A DATA ENGINEER FOCUSED ON TURNING RAW, UNSTRUCTURED DATASETS INTO RESILIENT, CLEAN, AND AUDITABLE PIPELINES.
                         </h2>
                     </div>
 
                     <!-- Metrics Showcase Cards -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-10 border-t border-cyberBorder mt-8 font-mono">
-                        
-                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
-                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">ROLE</div>
-                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
-                                JUNIOR DATA ENGINEER
-                            </div>
+                    <dl class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-10 border-t border-cyberBorder mt-8 font-mono">
+
+                        <div class="p-5 bg-white border border-cyberBorder border-l-4 border-l-royalBlue rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                            <dt class="text-xs text-techGray uppercase tracking-widest font-semibold">ROLE</dt>
+                            <dd class="text-base sm:text-lg font-black uppercase mt-2 text-navyPrimary tracking-wide">
+                                DATA ENGINEER
+                            </dd>
                         </div>
 
-                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
-                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">FOCUS</div>
-                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
-                                ETL PIPELINES & SQL
-                            </div>
+                        <div class="p-5 bg-white border border-cyberBorder border-l-4 border-l-royalBlue rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                            <dt class="text-xs text-techGray uppercase tracking-widest font-semibold">FOCUS</dt>
+                            <dd class="text-base sm:text-lg font-black uppercase mt-2 text-navyPrimary tracking-wide">
+                                ETL PIPELINES &amp; SQL
+                            </dd>
                         </div>
 
-                        <div class="p-5 bg-cyberCard border border-cyberBorder border-l-4 border-l-neonLime rounded-sm flex flex-col justify-between group hover:border-white/25 transition-all">
-                            <div class="text-xs text-techGray uppercase tracking-widest font-semibold">TRAINING</div>
-                            <div class="text-base sm:text-lg font-black uppercase mt-2 text-neonLime tracking-wide">
+                        <div class="p-5 bg-white border border-cyberBorder border-l-4 border-l-royalBlue rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                            <dt class="text-xs text-techGray uppercase tracking-widest font-semibold">SPECIALIZATION</dt>
+                            <dd class="text-base sm:text-lg font-black uppercase mt-2 text-navyPrimary tracking-wide">
                                 DEPI R5 (MICROSOFT)
-                            </div>
+                            </dd>
                         </div>
 
-                    </div>
+                    </dl>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- SECTION: TECHNICAL MATRIX (UPDATED COMPREHENSIVE SKILLS) -->
-    <section id="matrix" class="border-b border-cyberBorder bg-cyberDark">
+    <!-- SECTION: TECHNICAL MATRIX (COMPREHENSIVE SKILLS) -->
+    <section id="matrix" class="border-b border-cyberBorder bg-white" aria-labelledby="matrix-heading">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
-            
-            <div class="p-6 sm:p-10 border-b border-cyberBorder flex justify-between items-center font-mono">
-                <span class="text-neonLime text-sm sm:text-base font-bold uppercase tracking-widest">03 TECHNICAL MATRIX</span>
-                <span class="text-techGray text-xs uppercase tracking-widest">ENGINEERING COMPETENCIES & STACK</span>
+
+            <div class="p-6 sm:p-10 border-b border-cyberBorder flex flex-col sm:flex-row justify-between sm:items-center gap-2 font-mono bg-cyberDark">
+                <h2 id="matrix-heading" class="text-royalBlue text-sm sm:text-base font-bold uppercase tracking-widest">03 TECHNICAL MATRIX</h2>
+                <span class="text-techGray text-xs uppercase tracking-widest">ENGINEERING COMPETENCIES &amp; STACK</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-cyberBorder">
-                
+
                 <!-- Col 1: ETL & Pipeline Architecture -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
+                <article class="p-8 sm:p-10 group hover:bg-slate-50 transition-colors flex flex-col justify-between min-h-[340px] bg-white">
                     <div>
-                        <div class="font-mono text-xs text-techGray mb-6 font-bold">01</div>
-                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            ETL / ELT & Pipelines
-                        </h4>
+                        <p class="font-mono text-xs text-techGray mb-6 font-bold" aria-hidden="true">01</p>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary tracking-normal leading-snug group-hover:text-royalBlue transition-colors">
+                            ETL / ELT &amp; Pipelines
+                        </h3>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
                             Data Pipelines, Extraction, Transformation, Loading, Pipeline Automation, API Data Extraction, JSON, CSV Processing, File Handling, Transformation Workflows.
                         </p>
                     </div>
-                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
-                </div>
+                    <div class="h-1 w-10 bg-royalBlue mt-8" aria-hidden="true"></div>
+                </article>
 
                 <!-- Col 2: Advanced SQL & Data Modeling -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
+                <article class="p-8 sm:p-10 group hover:bg-slate-50 transition-colors flex flex-col justify-between min-h-[340px] bg-white">
                     <div>
-                        <div class="font-mono text-xs text-techGray mb-6 font-bold">02</div>
-                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            SQL & Data Modeling
-                        </h4>
+                        <p class="font-mono text-xs text-techGray mb-6 font-bold" aria-hidden="true">02</p>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary tracking-normal leading-snug group-hover:text-royalBlue transition-colors">
+                            SQL &amp; Data Modeling
+                        </h3>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
-                            SQL, Microsoft SQL Server, SSMS, Relational Databases, Data Modeling, ERD, Joins, Subqueries & Correlated Subqueries, CTEs, Window Functions, CASE Statements, Views, Stored Procedures, SQL Indexes.
+                            SQL, Microsoft SQL Server, SSMS, Relational Databases, Data Modeling, ERD, Joins, Subqueries &amp; Correlated Subqueries, CTEs, Window Functions, CASE Statements, Views, Stored Procedures, SQL Indexes.
                         </p>
                     </div>
-                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
-                </div>
+                    <div class="h-1 w-10 bg-royalBlue mt-8" aria-hidden="true"></div>
+                </article>
 
                 <!-- Col 3: Core Programming & Libraries -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
+                <article class="p-8 sm:p-10 group hover:bg-slate-50 transition-colors flex flex-col justify-between min-h-[340px] bg-white">
                     <div>
-                        <div class="font-mono text-xs text-techGray mb-6 font-bold">03</div>
-                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            Core Dev & Libraries
-                        </h4>
+                        <p class="font-mono text-xs text-techGray mb-6 font-bold" aria-hidden="true">03</p>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary tracking-normal leading-snug group-hover:text-royalBlue transition-colors">
+                            Core Dev &amp; Libraries
+                        </h3>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
                             Python, Pandas, Database Connectivity, pyodbc, Requests, Object-Oriented Programming (OOP), Exception Handling, Flask, Selenium, Java (Basic).
                         </p>
                     </div>
-                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
-                </div>
+                    <div class="h-1 w-10 bg-royalBlue mt-8" aria-hidden="true"></div>
+                </article>
 
                 <!-- Col 4: Data Quality & Infrastructure -->
-                <div class="p-8 sm:p-10 group hover:bg-white/[0.02] transition-colors flex flex-col justify-between min-h-[340px]">
+                <article class="p-8 sm:p-10 group hover:bg-slate-50 transition-colors flex flex-col justify-between min-h-[340px] bg-white">
                     <div>
-                        <div class="font-mono text-xs text-techGray mb-6 font-bold">04</div>
-                        <h4 class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-normal leading-snug group-hover:text-neonLime transition-colors">
-                            Quality & DevOps
-                        </h4>
+                        <p class="font-mono text-xs text-techGray mb-6 font-bold" aria-hidden="true">04</p>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary tracking-normal leading-snug group-hover:text-royalBlue transition-colors">
+                            Quality &amp; DevOps
+                        </h3>
                         <p class="font-mono text-xs sm:text-sm text-techGray uppercase leading-relaxed mt-4">
                             Data Quality, Data Cleaning, Data Validation, Schema Validation, Missing Data Handling, Data Deduplication, Data Engineering Fundamentals, Git, GitHub, Linux, Docker.
                         </p>
                     </div>
-                    <div class="h-1 w-10 bg-neonLime mt-8"></div>
-                </div>
+                    <div class="h-1 w-10 bg-royalBlue mt-8" aria-hidden="true"></div>
+                </article>
 
             </div>
         </div>
     </section>
 
     <!-- SECTION: CREDENTIALS & BADGES -->
-    <section id="credentials" class="border-b border-cyberBorder bg-cyberDark">
+    <section id="credentials" class="border-b border-cyberBorder bg-cyberDark" aria-labelledby="credentials-heading">
         <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
-            
-            <div class="p-6 sm:p-10 border-b border-cyberBorder flex justify-between items-center font-mono">
-                <span class="text-neonLime text-sm sm:text-base font-bold uppercase tracking-widest">04 VERIFIED CREDENTIALS</span>
-                <span class="text-techGray text-xs uppercase tracking-widest">CERTIFICATES & ACCREDITATIONS</span>
+
+            <div class="p-6 sm:p-10 border-b border-cyberBorder flex flex-col sm:flex-row justify-between sm:items-center gap-2 font-mono">
+                <h2 id="credentials-heading" class="text-royalBlue text-sm sm:text-base font-bold uppercase tracking-widest">04 VERIFIED CREDENTIALS</h2>
+                <span class="text-techGray text-xs uppercase tracking-widest">CERTIFICATES &amp; ACCREDITATIONS</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 divide-x-0 md:divide-x divide-cyberBorder">
-                
+
                 <!-- Cert 1 -->
-                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
                             DUKE UNIVERSITY (COURSERA)
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
                             Python, Bash and SQL Essentials for Data Engineering
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Hands-on pipeline automation, Linux CLI, Bash scripting, and SQL Server integration.
                         </p>
                     </div>
-                </div>
+                </article>
 
                 <!-- Cert 2 -->
-                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
                             ORACLE DEV GYM
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
                             Databases for Developers: Foundations
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Relational database design, integrity constraints, and operational SQL.
                         </p>
                     </div>
-                </div>
+                </article>
 
                 <!-- Cert 3 -->
-                <div class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 border-b border-cyberBorder flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
                             ORACLE UNIVERSITY
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
                             Oracle SQL Fundamentals
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Comprehensive relational query syntax, group functions, and multi-table joins.
                         </p>
                     </div>
-                </div>
+                </article>
 
                 <!-- Cert 4 -->
-                <div class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
                             IBM
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
                             Java Basics for Beginners
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Object-oriented programming architecture, data types, and logical workflows.
                         </p>
                     </div>
-                </div>
+                </article>
 
                 <!-- Cert 5 -->
-                <div class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 border-b md:border-b-0 border-cyberBorder flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
                             GOOGLE
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
                             Introduction to AI
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Foundational concepts of artificial intelligence, algorithms, and applied machine learning.
                         </p>
                     </div>
-                </div>
+                </article>
 
                 <!-- Cert 6 -->
-                <div class="p-8 sm:p-10 flex flex-col justify-between group hover:bg-white/[0.02] transition-colors">
+                <article class="p-8 sm:p-10 flex flex-col justify-between group hover:bg-white transition-colors bg-white/60">
                     <div>
-                        <span class="font-mono text-xs sm:text-sm bg-neonLime text-black font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
-                            COURSERA & LINUX FOUNDATION
+                        <span class="font-mono text-xs sm:text-sm bg-iceBlue text-royalBlue border border-royalBlue/20 font-black uppercase tracking-wider px-3 py-1 rounded-xs inline-block">
+                            COURSERA &amp; LINUX FOUNDATION
                         </span>
-                        <h4 class="font-sans font-extrabold text-xl sm:text-2xl text-white mt-4 leading-snug tracking-normal">
-                            Linux Fundamentals & Parallel Deployment
-                        </h4>
-                        <p class="font-mono text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-navyPrimary mt-4 leading-snug tracking-normal">
+                            Linux Fundamentals &amp; Parallel Deployment
+                        </h3>
+                        <p class="font-sans text-xs sm:text-sm text-techGray mt-3 leading-relaxed">
                             Terminal file systems, administration, and modern parallel workload distribution.
                         </p>
                     </div>
-                </div>
+                </article>
 
             </div>
 
             <!-- Bottom Note: All Certifications on LinkedIn -->
-            <div class="p-6 sm:p-8 border-t border-cyberBorder bg-white/[0.01] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
-                <div class="flex items-center gap-2 text-techGray">
-                    <span class="text-neonLime font-bold">INFO:</span>
-                    <span>ALL VERIFIED CERTIFICATES & DETAILED CREDENTIALS ARE AVAILABLE ON MY LINKEDIN PROFILE.</span>
-                </div>
-                <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="text-neonLime hover:text-white uppercase font-bold tracking-wider inline-flex items-center gap-1 transition-colors underline underline-offset-4">
+            <div class="p-6 sm:p-8 border-t border-cyberBorder bg-white flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                <p class="flex items-center gap-2 text-techGray">
+                    <span class="text-royalBlue font-bold">INFO:</span>
+                    <span>ALL VERIFIED CERTIFICATES &amp; DETAILED CREDENTIALS ARE AVAILABLE ON MY LINKEDIN PROFILE.</span>
+                </p>
+                <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="text-royalBlue hover:text-royalBlueHover uppercase font-bold tracking-wider inline-flex items-center gap-1 transition-colors underline underline-offset-4">
                     <span>VIEW ON LINKEDIN</span>
-                    <span>↗</span>
+                    <span aria-hidden="true">↗</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION: FINAL LAP / FOOTER -->
-    <footer id="contact" class="bg-neonLime text-black overflow-hidden">
-        <div class="max-w-[1440px] mx-auto border-x-0 sm:border-x border-black">
-            
-            <div class="p-6 sm:p-14 border-b border-black/20 font-mono text-xs sm:text-sm uppercase tracking-widest font-bold flex justify-between">
-                <span>FINAL LAP: OPEN FOR COLLABORATION</span>
-                <span>[ STATUS: READY ]</span>
-            </div>
+    <!-- SECTION 05: SERVICES & CAPABILITIES (LIGHT MODE CARDS) -->
+    <section id="services" class="border-b border-cyberBorder bg-white" aria-labelledby="services-heading">
+        <div class="max-w-[1440px] mx-auto border-x border-cyberBorder">
 
-            <!-- Massive Headline -->
-            <div class="p-6 sm:p-14 border-b border-black">
-                <h2 class="font-condensed text-6xl sm:text-8xl md:text-[9.5rem] leading-[0.88] tracking-tighter uppercase font-black">
-                    LET'S MAKE<br>
-                    SOMETHING<br>
-                    RELIABLE.
-                </h2>
-            </div>
-
-            <!-- Bottom Links & Info -->
-            <div class="p-6 sm:p-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 font-mono">
+            <!-- Section Header -->
+            <div class="p-6 sm:p-12 border-b border-cyberBorder flex flex-col md:flex-row md:items-end justify-between gap-4 bg-cyberDark">
                 <div>
-                    <div class="text-xs uppercase font-bold text-black/60 mb-2">PRIMARY DIRECT CHANNEL</div>
-                    <a href="mailto:ibrhama064@gmail.com" class="font-mono text-2xl sm:text-4xl font-bold tracking-tight uppercase hover:underline">
-                        IBRHAMA064@GMAIL.COM ↗
-                    </a>
-                    <div class="flex gap-6 mt-6 text-sm uppercase font-bold">
-                        <a href="https://github.com/ahmed-ibrahim-EG" target="_blank" rel="noopener noreferrer" class="hover:underline">GITHUB ↗</a>
-                        <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="hover:underline">LINKEDIN ↗</a>
+                    <p class="font-mono text-sm uppercase text-royalBlue tracking-widest mb-3 font-bold">05 ENGINEERING SERVICES</p>
+                    <h2 id="services-heading" class="font-condensed text-6xl sm:text-8xl uppercase tracking-tight leading-none font-bold text-navyPrimary">
+                        WHAT I <span class="text-slate-400">DELIVER</span>
+                    </h2>
+                </div>
+                <div class="font-mono text-xs text-techGray uppercase tracking-widest">
+                    [ PRODUCTION-GRADE DATA ENGINEERING SOLUTIONS ]
+                </div>
+            </div>
+
+            <!-- Services Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-cyberBorder">
+
+                <!-- Service 1 -->
+                <div class="p-8 sm:p-12 flex flex-col justify-between border-b border-cyberBorder group hover:bg-slate-50 transition-colors relative bg-white">
+                    <div>
+                        <div class="flex items-center justify-between font-mono text-xs text-techGray mb-6">
+                            <span class="bg-iceBlue border border-royalBlue/20 px-3 py-1 text-royalBlue font-bold">[ SERVICE 01 ]</span>
+                            <span class="text-royalBlue font-bold tracking-widest">CORE CAPABILITY</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary group-hover:text-royalBlue transition-colors leading-snug">
+                            End-to-End ETL / ELT Pipeline Development
+                        </h3>
+                        <p class="font-sans text-sm sm:text-base text-techGray mt-4 leading-relaxed">
+                            Architecting resilient automated data pipelines using Python and Pandas. Extracting structured and semi-structured feeds (JSON, CSV, Flat Files), running performant data transformations, and securely persisting outputs into relational storage or analytical data marts.
+                        </p>
+                    </div>
+                    <ul class="mt-8 flex flex-wrap gap-2 font-mono text-[11px]">
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Pipeline Automation</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Pandas Data Processing</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Batch Ingestion</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 sm:p-12 flex flex-col justify-between border-b border-cyberBorder group hover:bg-slate-50 transition-colors relative bg-white">
+                    <div>
+                        <div class="flex items-center justify-between font-mono text-xs text-techGray mb-6">
+                            <span class="bg-iceBlue border border-royalBlue/20 px-3 py-1 text-royalBlue font-bold">[ SERVICE 02 ]</span>
+                            <span class="text-royalBlue font-bold tracking-widest">ARCHITECTURE</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary group-hover:text-royalBlue transition-colors leading-snug">
+                            Relational Database Design &amp; SQL Query Optimization
+                        </h3>
+                        <p class="font-sans text-sm sm:text-base text-techGray mt-4 leading-relaxed">
+                            Designing clean relational schemas, Entity Relationship Diagrams (ERDs), and dimensional models (Star Schemas). Writing auditable, high-performance T-SQL queries utilizing CTEs, Window Functions, and index strategies across Microsoft SQL Server.
+                        </p>
+                    </div>
+                    <ul class="mt-8 flex flex-wrap gap-2 font-mono text-[11px]">
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Microsoft SQL Server</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Schema Design / ERD</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Analytical T-SQL</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 sm:p-12 flex flex-col justify-between group hover:bg-slate-50 transition-colors relative bg-white">
+                    <div>
+                        <div class="flex items-center justify-between font-mono text-xs text-techGray mb-6">
+                            <span class="bg-iceBlue border border-royalBlue/20 px-3 py-1 text-royalBlue font-bold">[ SERVICE 03 ]</span>
+                            <span class="text-royalBlue font-bold tracking-widest">RELIABILITY</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary group-hover:text-royalBlue transition-colors leading-snug">
+                            Data Quality, Cleaning &amp; Validation Frameworks
+                        </h3>
+                        <p class="font-sans text-sm sm:text-base text-techGray mt-4 leading-relaxed">
+                            Enforcing strict data integrity across ingestion flows. Designing rulesets for missing value imputation, type casting, schema mismatch prevention, deduplication, and anomaly identification to ensure only audit-ready records reach downstream analytics.
+                        </p>
+                    </div>
+                    <ul class="mt-8 flex flex-wrap gap-2 font-mono text-[11px]">
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Schema Enforcement</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Deduplication &amp; Cleaning</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Anomaly Checks</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-8 sm:p-12 flex flex-col justify-between group hover:bg-slate-50 transition-colors relative bg-white">
+                    <div>
+                        <div class="flex items-center justify-between font-mono text-xs text-techGray mb-6">
+                            <span class="bg-iceBlue border border-royalBlue/20 px-3 py-1 text-royalBlue font-bold">[ SERVICE 04 ]</span>
+                            <span class="text-royalBlue font-bold tracking-widest">INTEGRATION</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-navyPrimary group-hover:text-royalBlue transition-colors leading-snug">
+                            REST API Data Ingestion &amp; Automation
+                        </h3>
+                        <p class="font-sans text-sm sm:text-base text-techGray mt-4 leading-relaxed">
+                            Developing programmatic integrations with live RESTful web endpoints. Handling pagination, request throttling/rate-limiting, robust network exception catching, payload parsing, and automated pipeline execution in Linux and Git-controlled workflows.
+                        </p>
+                    </div>
+                    <ul class="mt-8 flex flex-wrap gap-2 font-mono text-[11px]">
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">REST APIs &amp; Requests</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Rate Limiting &amp; Retries</li>
+                        <li class="px-2.5 py-1 bg-cyberDark border border-cyberBorder text-slate-700 font-semibold uppercase">Git &amp; Linux CLI</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- SECTION: FINAL LAP / FOOTER (DEEP NAVY WITH ROYAL BLUE ACCENTS) -->
+    <footer id="contact" class="bg-navyPrimary text-white overflow-hidden">
+        <div class="max-w-[1440px] mx-auto border-x-0 sm:border-x border-slate-800">
+
+            <div class="p-6 sm:p-10 border-b border-slate-800 font-mono text-xs sm:text-sm uppercase tracking-widest font-bold flex flex-col sm:flex-row justify-between gap-2 text-slate-400">
+                <span>FINAL LAP: OPEN FOR COLLABORATION</span>
+                <span class="text-blue-400">[ STATUS: READY ]</span>
+            </div>
+
+            <!-- Main Flex/Grid Section: Headline on Left, Action Cards on Right -->
+            <div class="p-6 sm:p-14 border-b border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Massive Headline (Left) -->
+                <div class="lg:col-span-7">
+                    <h2 class="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] leading-none sm:leading-[0.92] tracking-tight uppercase font-black text-white">
+                        LET'S MAKE<br>
+                        SOMETHING<br>
+                        RELIABLE.
+                    </h2>
+                </div>
+
+                <!-- Action Cards (Right - Fills empty area) -->
+                <div class="lg:col-span-5 flex flex-col justify-center space-y-4 font-mono">
+                    <div>
+                        <p class="text-xs uppercase font-bold text-slate-400 mb-2 tracking-widest">PRIMARY DIRECT CHANNEL</p>
+                        
+                        <!-- Primary Email Button (Royal Blue) -->
+                        <a href="mailto:ibrhama064@gmail.com" class="group flex items-center justify-between bg-royalBlue text-white hover:bg-royalBlueHover border-2 border-royalBlue px-5 py-3.5 transition-all duration-300 shadow-md hover:translate-x-1 hover:translate-y-1">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
+                                <span class="font-mono text-sm sm:text-lg font-bold tracking-tight uppercase truncate">IBRHAMA064@GMAIL.COM</span>
+                            </div>
+                            <span class="text-lg font-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <!-- GitHub Button -->
+                        <a href="https://github.com/ahmed-ibrahim-EG" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-slate-800 text-white hover:bg-white hover:text-navyPrimary border-2 border-slate-700 px-4 py-3 transition-all duration-300 shadow-sm hover:translate-x-0.5 hover:translate-y-0.5">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                </svg>
+                                <span class="font-bold text-xs sm:text-sm">GITHUB</span>
+                            </div>
+                            <span class="text-xs font-black">↗</span>
+                        </a>
+
+                        <!-- LinkedIn Button -->
+                        <a href="https://www.linkedin.com/in/ahmed-ibrahim-36600b2a5" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-slate-800 text-white hover:bg-white hover:text-navyPrimary border-2 border-slate-700 px-4 py-3 transition-all duration-300 shadow-sm hover:translate-x-0.5 hover:translate-y-0.5">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                <span class="font-bold text-xs sm:text-sm">LINKEDIN</span>
+                            </div>
+                            <span class="text-xs font-black">↗</span>
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-xs uppercase font-bold tracking-widest text-black/70">
-                    © 2026 AHMED IBRAHIM — ALL SYSTEMS OPERATIONAL
-                </div>
+            <!-- Footer Bottom Note -->
+            <div class="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-xs uppercase font-bold text-slate-400">
+                <span>BASED IN ALEXANDRIA, EGYPT</span>
+                <span>© 2026 AHMED IBRAHIM — ALL SYSTEMS OPERATIONAL</span>
             </div>
 
         </div>
@@ -744,38 +997,91 @@
             }
         ];
 
-        function switchTab(index) {
+        const tabButtons = projectData.map((_, i) => document.getElementById(`btn-tab-${i}`));
+        const displayBox = document.getElementById('project-display-box');
+        const stackContainer = document.getElementById('proj-stack');
+
+        function renderProject(index) {
             const data = projectData[index];
-            
-            // Update Card Content
+
             document.getElementById('proj-tag').textContent = data.tag;
             document.getElementById('proj-status').textContent = data.status;
             document.getElementById('proj-title').textContent = data.title;
             document.getElementById('proj-desc').textContent = data.desc;
             document.getElementById('proj-link').href = data.link;
 
-            // Update Badges
-            const stackContainer = document.getElementById('proj-stack');
             stackContainer.innerHTML = '';
-            data.stack.forEach(tech => {
-                const badge = document.createElement('span');
-                badge.className = 'px-3 py-1 bg-black text-neonLime uppercase font-bold';
+            data.stack.forEach((tech) => {
+                const badge = document.createElement('li');
+                badge.className = 'px-3 py-1 bg-royalBlue text-white uppercase font-bold';
                 badge.textContent = tech;
                 stackContainer.appendChild(badge);
             });
 
-            // Update Button Styles
-            for (let i = 0; i < projectData.length; i++) {
-                const btn = document.getElementById(`btn-tab-${i}`);
-                if (btn) {
-                    if (i === index) {
-                        btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-white/5 border-l-4 border-neonLime';
-                    } else {
-                        btn.className = 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-white/5 border-l-4 border-transparent';
-                    }
-                }
-            }
+            tabButtons.forEach((btn, i) => {
+                if (!btn) return;
+                const isActive = i === index;
+                btn.className = isActive
+                    ? 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors bg-iceBlue border-l-4 border-royalBlue'
+                    : 'project-tab-btn w-full p-6 sm:p-7 text-left flex items-center justify-between group transition-colors hover:bg-slate-50 border-l-4 border-transparent';
+                btn.setAttribute('aria-selected', String(isActive));
+                btn.setAttribute('tabindex', isActive ? '0' : '-1');
+            });
+
+            displayBox.setAttribute('aria-labelledby', `btn-tab-${index}`);
         }
+
+        function switchTab(index) {
+            renderProject(index);
+            tabButtons[index]?.focus();
+        }
+
+        tabButtons.forEach((btn, i) => {
+            if (!btn) return;
+            btn.addEventListener('click', () => renderProject(i));
+
+            btn.addEventListener('keydown', (event) => {
+                const lastIndex = tabButtons.length - 1;
+                let nextIndex = null;
+
+                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                    nextIndex = i === lastIndex ? 0 : i + 1;
+                } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                    nextIndex = i === 0 ? lastIndex : i - 1;
+                } else if (event.key === 'Home') {
+                    nextIndex = 0;
+                } else if (event.key === 'End') {
+                    nextIndex = lastIndex;
+                }
+
+                if (nextIndex !== null) {
+                    event.preventDefault();
+                    switchTab(nextIndex);
+                }
+            });
+        });
+
+        // Mobile navigation toggle
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const iconOpen = document.getElementById('mobile-nav-icon-open');
+        const iconClose = document.getElementById('mobile-nav-icon-close');
+
+        function setMobileNavOpen(isOpen) {
+            mobileNav.setAttribute('data-open', String(isOpen));
+            mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
+            iconOpen.classList.toggle('hidden', isOpen);
+            iconClose.classList.toggle('hidden', !isOpen);
+        }
+
+        mobileNavToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.getAttribute('data-open') === 'true';
+            setMobileNavOpen(!isOpen);
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+            link.addEventListener('click', () => setMobileNavOpen(false));
+        });
     </script>
 </body>
 </html>
